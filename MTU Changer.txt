@@ -1,0 +1,92 @@
+
+@echo off
+title MTU Changer
+color 0c
+:main
+cls
+echo MTU Changer v0.1 beta by spewpanda *관리자 권한 필수*
+echo --                                                  --
+echo 1. 실행
+echo 2. 롤백
+echo --                                                  --
+echo 실행 후 일부 웹사이트(EX. 관공서, 금융사이트 등)에 접속이 안 될수 있으니 유의하시기 바랍니다.
+echo 실행 후 목적을 달성하였다면 반드시 롤백을 해주시기 바랍니다.
+
+
+
+set subinterface /p a=실행할 항목의 숫자를 입력 : 
+if %a%==1 goto sans
+if %a%==2 goto undertale
+
+:sans
+echo 실행 중....
+netsh interface ip set subinterface global minmtu=352
+netsh interface ipv4 set subinterface 2 mtu=400
+netsh interface ipv4 set subinterface 3 mtu=400
+netsh interface ipv4 set subinterface 4 mtu=400
+netsh interface ipv4 set subinterface 5 mtu=400
+netsh interface ipv4 set subinterface 6 mtu=400
+netsh interface ipv4 set subinterface 7 mtu=400
+netsh interface ipv4 set subinterface 8 mtu=40
+netsh interface ipv4 set subinterface 9 mtu=400
+netsh interface ipv4 set subinterface 10 mtu=400
+netsh interface ipv4 set subinterface 11 mtu=400
+netsh interface ipv4 set subinterface 12 mtu=400
+netsh interface ipv4 set subinterface 13 mtu=400
+netsh interface ipv4 set subinterface 14 mtu=400
+netsh interface ipv4 set subinterface 15 mtu=400
+netsh interface ipv4 set subinterface 16 mtu=400
+netsh interface ipv4 set subinterface 17 mtu=400
+netsh interface ipv4 set subinterface 18 mtu=400
+netsh interface ipv4 set subinterface 19 mtu=400
+netsh interface ipv4 set subinterface 20 mtu=400
+netsh interface ipv4 set subinterface 21 mtu=400
+netsh interface ipv4 set subinterface 22 mtu=400
+netsh interface ipv4 set subinterface 23 mtu=400
+netsh interface ipv4 set subinterface 24 mtu=400
+netsh interface ipv4 set subinterface 25 mtu=400
+netsh interface ipv4 set subinterface 26 mtu=400
+netsh interface ipv4 set subinterface 27 mtu=400
+netsh interface ipv4 set subinterface 28 mtu=400
+netsh interface ipv4 set subinterface 29 mtu=400
+netsh interface ipv4 set subinterface 30 mtu=400
+goto end
+
+:undertale
+netsh interface ipv4 set subinterface 2 mtu=1500
+netsh interface ipv4 set subinterface 3 mtu=1500
+netsh interface ipv4 set subinterface 4 mtu=1500
+netsh interface ipv4 set subinterface 5 mtu=1500
+netsh interface ipv4 set subinterface 6 mtu=1500
+netsh interface ipv4 set subinterface 7 mtu=1500
+netsh interface ipv4 set subinterface 8 mtu=1500
+netsh interface ipv4 set subinterface 9 mtu=1500
+netsh interface ipv4 set subinterface 10 mtu=1500
+netsh interface ipv4 set subinterface 11 mtu=1500
+netsh interface ipv4 set subinterface 12 mtu=1500
+netsh interface ipv4 set subinterface 13 mtu=1500
+netsh interface ipv4 set subinterface 14 mtu=1500
+netsh interface ipv4 set subinterface 15 mtu=1500
+netsh interface ipv4 set subinterface 16 mtu=1500
+netsh interface ipv4 set subinterface 17 mtu=1500
+netsh interface ipv4 set subinterface 18 mtu=1500
+netsh interface ipv4 set subinterface 19 mtu=1500
+netsh interface ipv4 set subinterface 20 mtu=1500
+netsh interface ipv4 set subinterface 21 mtu=1500
+netsh interface ipv4 set subinterface 22 mtu=1500
+netsh interface ipv4 set subinterface 23 mtu=1500
+netsh interface ipv4 set subinterface 24 mtu=1500
+netsh interface ipv4 set subinterface 25 mtu=1500
+netsh interface ipv4 set subinterface 26 mtu=1500
+netsh interface ipv4 set subinterface 27 mtu=1500
+netsh interface ipv4 set subinterface 28 mtu=1500
+netsh interface ipv4 set subinterface 29 mtu=1500
+netsh interface ipv4 set subinterface 30 mtu=1500
+goto end
+
+:end
+cls
+echo 문제 발생 시 현재 화면을 개발자에게 보내주시기 바랍니다.
+netsh interface ipv4 show interfaces
+echo --
+pause
