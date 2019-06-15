@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\assets",
+    "\\assets\\css"
   ],
-  "SelectedNode": "\\MTU Changer.txt",
+  "SelectedNode": "\\wasabi_rule.html",
   "PreviewInSolutionExplorer": false
 }
