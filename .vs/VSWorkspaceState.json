@@ -1,10 +1,11 @@
 {
   "ExpandedNodes": [
     "",
-    "\\assets",
-    "\\assets\\css",
-    "\\wasabi"
+    "\\archive",
+    "\\archive\\lovelive",
+    "\\assets\\js",
+    "\\assets\\sass"
   ],
-  "SelectedNode": "\\wasabi\\main.html",
+  "SelectedNode": "\\archive\\lovelive\\music.html",
   "PreviewInSolutionExplorer": false
 }
