@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\archive",
-    "\\archive\\lovelive"
+    "\\archive\\lovelive",
+    "\\archive\\lovelive\\images"
   ],
-  "SelectedNode": "\\index.html",
+  "SelectedNode": "\\archive\\lovelive\\images",
   "PreviewInSolutionExplorer": false
 }
