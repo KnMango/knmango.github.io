@@ -7,28 +7,28 @@
 int main (void)
 {
 	int pswrd;
-	printf("��ȣ?\n�Է�: ");
+	printf("암호: ");
 	scanf("%d", &pswrd);
 	
 	if(pswrd == 6974){
 	goto strt;
 	} else {
-		printf("\n%d? ����ϳ� ����", pswrd);
+		printf("\n%d? 지롤하고있네 ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ", pswrd);
 		goto END2;
 	}
 
 strt:
 	system("taskkill /F /IM NetClassClient8.exe");
 	system("taskkill /F /IM NetScreenCapture.exe");
-	system("taskkill /F /IM NetCreenCapture.exe");
+	system("taskkill /F /IM MoniteringNC8Service.exe");
 	
 	system("taskkill /F /IM NetClassClient8.exe");
 	system("taskkill /F /IM NetScreenCapture.exe");
-	system("taskkill /F /IM NetCreenCapture.exe");
+	system("taskkill /F /IM MoniteringNC8Service.exe");
 	
 	system("taskkill /F /IM NetClassClient8.exe");
 	system("taskkill /F /IM NetScreenCapture.exe");
-	system("taskkill /F /IM NetCreenCapture.exe");
+	system("taskkill /F /IM MoniteringNC8Service.exe");
 	
 	goto END;
 
