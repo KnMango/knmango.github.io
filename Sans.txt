@@ -1,0 +1,44 @@
+#include <stdio.h>
+#include <windows.h>
+#define process1 "NetClassClient8.exe"
+#define process2 "NetScreenCapture.exe"
+#define process3 "MoniteringNC8Service.exe"
+
+int main (void)
+{
+	int pswrd;
+	printf("암호: ");
+	scanf("%d", &pswrd);
+	
+	if(pswrd == 6974){
+	goto strt;
+	} else {
+		printf("\n%d? 지롤하고있네 ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ", pswrd);
+		goto END2;
+	}
+
+strt:
+	system("taskkill /F /IM NetClassClient8.exe");
+	system("taskkill /F /IM NetScreenCapture.exe");
+	system("taskkill /F /IM MoniteringNC8Service.exe");
+	
+	system("taskkill /F /IM NetClassClient8.exe");
+	system("taskkill /F /IM NetScreenCapture.exe");
+	system("taskkill /F /IM MoniteringNC8Service.exe");
+	
+	system("taskkill /F /IM NetClassClient8.exe");
+	system("taskkill /F /IM NetScreenCapture.exe");
+	system("taskkill /F /IM MoniteringNC8Service.exe");
+	
+	goto END;
+
+END:
+	system("tasklist");
+	system("pause");
+	return 0;
+	
+END2:
+	printf("���Ż� �װ�Ʋ���� ������������������������������\n");
+	system("pause");
+	return 0;
+}
