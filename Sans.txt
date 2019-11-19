@@ -38,7 +38,7 @@ END:
 	return 0;
 	
 END2:
-	printf("���Ż� �װ�Ʋ���� ������������������������������\n");
+	printf("ㅂㅅ\n");
 	system("pause");
 	return 0;
 }
