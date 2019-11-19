@@ -6,7 +6,10 @@
 
 int main (void)
 {
-	int pswrd;
+        int *pass;
+	int pswrd = 0;
+	*pass = pswrd;
+	
 	printf("암호: ");
 	scanf("%d", &pswrd);
 	
