@@ -8,4 +8,5 @@ app = discord.Client()
     print(app.client.name)
     print(app.client.id)
     
-@app.event(
+@app.event(on_message):
+    if 
