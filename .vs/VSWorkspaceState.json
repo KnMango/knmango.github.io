@@ -3,8 +3,9 @@
     "",
     "\\butter-server",
     "\\butter-server\\assets",
-    "\\butter-server\\assets\\css"
+    "\\butter-server\\assets\\css",
+    "\\butter-server\\images"
   ],
-  "SelectedNode": "\\butter-server\\assets\\css\\images",
+  "SelectedNode": "\\butter-server\\images\\pic01.jpg",
   "PreviewInSolutionExplorer": false
 }
