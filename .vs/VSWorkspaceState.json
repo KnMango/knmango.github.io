@@ -1,11 +1,13 @@
 {
   "ExpandedNodes": [
     "",
+    "\\assets",
+    "\\assets\\js",
     "\\butter-server",
     "\\butter-server\\assets",
     "\\butter-server\\assets\\css",
     "\\butter-server\\images"
   ],
-  "SelectedNode": "\\butter-server\\images\\pic01.jpg",
+  "SelectedNode": "\\butter-server\\images\\bg.jpg",
   "PreviewInSolutionExplorer": false
 }
