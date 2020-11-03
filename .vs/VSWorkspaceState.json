@@ -6,8 +6,10 @@
     "\\butter-server",
     "\\butter-server\\assets",
     "\\butter-server\\assets\\css",
+    "\\butter-server\\assets\\js",
+    "\\butter-server\\assets\\sass",
     "\\butter-server\\images"
   ],
-  "SelectedNode": "\\butter-server\\images\\bg.jpg",
+  "SelectedNode": "\\aboutme.html",
   "PreviewInSolutionExplorer": false
 }
