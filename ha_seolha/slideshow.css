@@ -6,14 +6,14 @@
 
 /* Slideshow container */
 .slideshow-container {
-    max-width: 1200px;
-    max-height: 750px;
+    max-width: 1280px;
+    max-height: 720px;
     position: relative;
     margin: auto;
 }
 
     .slideshow-container .mySlides img {
-        height: 750px;
+        height: 720px;
     }
 
 /* Hide the images by default */
