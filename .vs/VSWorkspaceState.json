@@ -2,15 +2,15 @@
   "ExpandedNodes": [
     "",
     "\\assets",
-    "\\assets\\css",
     "\\assets\\js",
     "\\butter-server",
     "\\butter-server\\assets",
     "\\butter-server\\assets\\css",
     "\\butter-server\\assets\\js",
     "\\butter-server\\assets\\sass",
-    "\\butter-server\\images"
+    "\\butter-server\\images",
+    "\\ha_seolha"
   ],
-  "SelectedNode": "\\assets\\js\\breakpoints.min.js",
+  "SelectedNode": "\\ha_seolha\\analytics.js",
   "PreviewInSolutionExplorer": false
 }
