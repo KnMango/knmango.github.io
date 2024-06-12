@@ -131,6 +131,25 @@ def play_next(ctx):
     if next_track:
         ctx.voice_client.play(next_track, after=lambda e: play_next(ctx) if not e else print(f'playback err: {e}'))
 
+@bot.command(name='next', help='큐에 새로운 트랙을 추가합니다')
+@is_in_super_channel()
+async def next(ctx, url):
+    async with ctx.typing():
+        data = await YTDLSource.from_url(url, loop=bot.loop, stream=True)
+        if not data:
+            await ctx.send("bad request(client.queue.add)")
+            return
+
+        if isinstance(data, list):
+            for entry in reversed(data):
+                source = YTDLSource(discord.FFmpegPCMAudio(entry['url'], **ffmpeg_options), data=entry)
+                music_queue.add_next(source)
+            await ctx.send(f"재생목록에서 {len(data)}개의 트랙을 큐의 다음에 추가했습니다.")
+        else:
+            source = YTDLSource(discord.FFmpegPCMAudio(data['url'], **ffmpeg_options), data=data)
+            music_queue.add_next(source)
+            await ctx.send(f'Next in queue: {source.title}')
+
 
 @bot.command(name='queue', help='Queue 목록 출력')
 @is_in_super_channel()
