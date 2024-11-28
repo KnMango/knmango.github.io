@@ -38,6 +38,13 @@
 			object-fit: contain;
 		}
 	</style>
+	<style>
+		.fixed-voi {
+			width: 1280px;
+			height: 720px;
+			object-fit: contain;
+		}
+	</style>
 </head>
 	<body class="is-preload">
 		<!-- Wrapper -->
@@ -76,10 +83,12 @@
 			<!-- Main -->
 			<div id="main">
 				<div class="inner">
-					<h1>#Unity.3D / 2편. Asset 불러오고 만져보기</h1>
+					<h1>#Unity.3D / 2편. Asset 불러오고 살펴보기</h1>
 					<h3>0. 오늘 할 것</h3>
 					<p>
-						1편에서 VCC를 설치하고, 당장 필요한 최소한의 컴포넌트를 설치하는 작업을 진행하였다. 이번 2편에서는 1편에서 잠깐 참고자료로서 사용되었던 아래 의상으로 교체하는 작업을 해볼 것이다.<br />
+						1편에서 VCC를 설치하고, 당장 필요한 최소한의 컴포넌트를 설치하는 작업을 진행하였다. 이번 2편에서는 1편에서 잠깐 참고자료로서 사용되었던 사진처럼 의상을 교체하는 작업을 해볼까 했으나,
+						이론적인 설명이 조금 필요하다고 판단하여 3편으로 미루고 먼저 Asset을 불러온 다음 살펴보는 시간을 가져볼 것이다.<br />
+
 						<img src="images/unt_3d_1_before.png" alt="" class="fixed-size"/>
 						<img src="images/unt_3d_1_after.png" alt="" class="fixed-size"/><br />
 						(자료로 잠깐 등장했던 Before -> After 사진)
@@ -88,109 +97,47 @@
 					<h3>1. Asset 불러오기</h3>
 					<p>
 						<img src="images/unt_3d_11.png" alt="" class="fixed-vi" /><br />
-						저번 1편에서 구성한 Project를 열어 보면, 당연하겠지만 아무것도 없이 텅 비어있을 것이다. 이제 여기에 에셋을 불러와서(import) 의상을 교체해볼 것이다.<br />
-					</p>
-					<p>
-						본체를 구성하는 요소 중 얼굴 및 신체는 기본이 되는 모델이 따로 있다. 대표적으로 Manuka, Moe, Mint, Chiffon 등으로 상당히 많다.<br />
-						이 기본 모델을 수정하는 '뚜따' 과정을 거치면 자신만의 아바타를 소유할 수 있게 되는 것이다.(아래는 의상 수정의 예시이나,실제로는 체형, 얼굴, 눈 색, 헤어스타일 등 많은 부분의 수정이 가능하다.)<br />
+						저번 1편에서 구성한 프로젝트를 열어 보면, 당연하겠지만 아무것도 없이 텅 비어있다. 이제 여기에 에셋을 하나하나 불러오고(import), 하나의 workspace를 꾸미고, 하고싶은 작업을 하면 된다.<br /><br />
+						<img src="images/unt_3d_12.png" alt="" class="fixed-size"/><br />
+						위쪽 리본 메뉴에서 Assets > Import Package > Custom Package 순으로 선택하여 에셋 패키지를 불러온다.<br /><br />
+						<img src="images/unt_3d_13.png" alt="" class="fixed-vi"/><br />
+						우리는 이 4개의 패키지를 불러올 것인데, 동시에 import할 수 없기 때문에 하나씩 순서 상관 없이 전부 불러와 주면 되겠다.<br /><br />
+						<img src="images/unt_3d_14.png" alt="" class="fixed-vi"/><br />
+						각 패키지를 불러올 때마다 이렇게 뭘 가져올 것인지 물어볼 것인데, All 누르고 Import 해주면 된다.<br /><br />
+						<img src="images/unt_3d_15.png" alt="" class="fixed-vi"/><br />
+						만일 이런 창이 뜬다면 그냥 'Yes, for these and other files that might be found later' 를 눌러주자.<br /><br />
+						<img src="images/unt_3d_16.png" alt="" class="fixed-vi"/><br />
+						다 불러왔는데, 어라? 처음에 비해 무엇이 달라졌는지 알 수가 없다. 무언가 잘못된 것일까?<br /><br />
+						<img src="images/unt_3d_17.png" alt="" class="fixed-vi"/><br />
+						아니다. 좌하단 Project 탭을 보면 무언가 폴더가 많이 생겨있는 것을 알 수 있다. 여기서 가장 상위 디렉토리를 선택해 주고, 가장 기본적인 아바타 본체를 가져와 준다.<br />
+						꺼내오는 방법은 몇 가지가 있는데, 우리는 Hierachy('하이어라키' 라고 읽는다)로 드래그해서 가져올 것이다.<br />
+						<img src="images/unt_3d_18.png" alt="" class="fixed-vi"/><br />
+						<img src="images/unt_3d_19.png" alt="" class="fixed-vi"/><br />
+						드래그하면 아바타 본체가 튀어나올 텐데, 일단 다른 것은 놔둔 채로 의상이 아바타에 어떻게 들어있나 구조를 한번 살펴보자.<br />
 
-					<img src="images/unt_3d_1_before.png" alt="" class="fixed-size"/>
-					<img src="images/unt_3d_1_after.png" alt="" class="fixed-size"/></p>
 
-					<h3>2. 용어 정립</h3>
+
+
+
+						
+
+					<h3>2. 뜯어보기</h3>
 					<p>
-						아무래도 Unity와 같은 프로덕션 툴을 다룰 때에는 이것저것 용어가 많이 나올 수밖에 없다.<br />
-						다 알 필요는 없지만 가장 필요한 것들만 아래 표로 간단히 정리해 보자.<br />
-						<div class="table-wrapper">
-							<table class="alt">
-								<thead>
-                                    <tr>
-                                        <th>이름</th>
-                                        <th>정의</th>
-                                    </tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>Mesh(메쉬)</td>
-										<td>3D 모델의 기본 구성 요소. Vertex, Edge, Face로 구성된 Polygon의 집합.</td>
-									</tr>
-									<tr>
-										<td>Vertex(버텍스)</td>
-										<td>Mesh의 꼭짓점.</td>
-									</tr>
-									<tr>
-										<td>Edge(엣지)</td>
-										<td>두 개의 Vertex를 연결하는 선.</td>
-									</tr>
-									<tr>
-										<td>Face(페이스)</td>
-										<td>Edge의 집합인 면.</td>
-									</tr>
-									<tr>
-										<td>Polygon(폴리곤)</td>
-										<td>Vertex의 집합인 2D 면.</td>
-									</tr>
-									<tr>
-										<td>Topology(토폴로지)</td>
-										<td>Mesh의 Polygon 배치 방식.</td>
-									</tr>
-									<tr>
-										<td>UV Mapping</td>
-										<td>3D 모델의 표면을 평면으로 펼친 후, Texture를 입히는 것.</td>
-									</tr>
-									<tr>
-										<td>Texture(텍스쳐)</td>
-										<td>Mesh 표면에 입히는 2D 이미지.</td>
-									</tr>
-									<tr>
-										<td>Normal Map</td>
-										<td>빛의 방향성을 조정하여 Mesh가 디테일해 보이도록 하는 Texture.</td>
-									</tr>
-									<tr>
-										<td>Specular Map</td>
-										<td>물체 표면의 반사광을 제어하는 Texture.</td>
-									</tr>
-									<tr>
-										<td>Shader(쉐이더)</td>
-										<td>3D 모델의 표면의 렌더링 방식을 정의한 코드.</td>
-									</tr>
-									<tr>
-										<td>Rigging(리깅)</td>
-										<td>3D 모델에 뼈대(Bones)를 추가하여 움직임을 구현하는 것.</td>
-									</tr>
-									<tr>
-										<td>Skinning(스키닝)</td>
-										<td>리깅이 완료된 뼈대를 Mesh와 상호작용하도록 하는 것.</td>
-									</tr>
-									<tr>
-										<td>Blendshape(Morph Target)</td>
-										<td>표정이나 신체의 변형을 위한 상태(Parameter)를 저장한 것.</td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-					</p>
-					<h3>3. On your mark</h3>
-					<p>
-						먼저 <a href="https://vrchat.com/home/download"><u>VRChat Creator Companion(VCC)</u></a>를 내려받아 준다.<br />
-						<img src="images/unt_3d_2.png" alt="" class="fixed-vi" /><br /><br />
-						현재 VCC의 권장 버전은 Unity 2022.3.22f1이다. 해당하는 버전의 Unity가 설치되어 있다는 가정 하에, 일단 Create New Project를 선택하여 새 프로젝트를 만들어 보자.<br />
-						Unity 2022 Avatar Project를 선택하고, 프로젝트 이름과 저장 경로를 마음에 드는 곳으로 지정해 준다.
-						<img src="images/unt_3d_4.png" alt="" class="fixed-vi" /><br /><br />
-						Unity 2022 Avatar Project를 선택하고, 프로젝트 이름과 저장 경로를 마음에 드는 곳으로 지정해 준다.
-						지금 우리가 사용할 모델은 liltoon 쉐이더를 사용하는 것 같다. liltoon 쉐이더는 기본적으로 VCC에서 제공하는 컴포넌트가 아니기에 수동으로 추가해 주어야 한다.<br />
-						<img src="images/unt_3d_5.png" alt="" class="fixed-vi" /><br />
-						<img src="images/unt_3d_6.png" alt="" class="fixed-vi" /><br /><br />
-						Settings -> Packages -> Add Repository 순으로 클릭하고, <u>https://lilxyzw.github.io/vpm-repos/vpm.json</u> URL을 붙여넣고 Add 버튼을 클릭한다.<br />
-						<img src="images/unt_3d_7.png" alt="" class="fixed-vi" /><br />
-						<img src="images/unt_3d_8.png" alt="" class="fixed-vi" /><br />
-						추가가 완료되면 위 사진처럼 표시될 것이다. 앞으로 다른 패키지를 설치할 때도 방금 한 것과 같이 설치하면 된다.<br /><br />
-						다음은 Project 설정이다. Project -> 생성한 프로젝트 -> Manage Project 순으로 클릭한다.
-						<img src="images/unt_3d_10.png" alt="" class="fixed-vi" /><br />
-						<img src="images/unt_3d_9.png" alt="" class="fixed-vi" /><br />
-						위 사진의 빨간 체크표시 있는 컴포넌트를 설치해 준다.<br /><br />
-						이번 시간에는 오늘은 VCC를 설치하고, 필요한 컴포넌트를 설치해 보았다.<br />
-						다음 시간에는 프로젝트를 열어서 필요한 에셋을 불러오는 것부터 시작해볼 것이다.
+						Hierachy라고 하면 단어가 생소할 수도 있는데, 어떠한 객체(Object)의 하위 구성 요소(Components)들을 한 눈에 볼 수 있도록 하는 일종의 구조도(Structure Chart)라고 이해하면 편할 것 같다.
+						일단 각설하고 빠르게 살펴보자.<br /><br />
+						<img src="images/unt_3d_20.png" alt="" class="fixed-vi"/><br />
+						먼저 우리가 처음으로 불러온 아바타 본체, [0627 후야v2] 옆에 있는 화살표를 눌러보면 이런 구성 요소들이 나올 것이다. 우리가 앞으로 건드릴 것은 [Armature_2]인데, 
+						한국어로 번역하게 되면 골조, 철근 등으로 해석할 수 있다.<br /><br />
+
+						<img src="images/unt_3d_21.png" alt="" class="fixed-vi"/><br />
+						가장 상위의 'Hips'를 펼쳐 보면 하위 요소들이 나오는데, 여기서 먼저 알 수 있는 사실이 하나 있다. 바로 Unity에서는 인체 골조가 Hips로부터 시작하여 말단까지 뻗어간다는 것이다. 
+						보통 땅에 붙어있는 발부터 시작할 것이라고 생각하기 쉬운데, 필자 또한 이걸 공부하기 전에는 그렇게 생각했다.<br /><br />
+						<img src="images/unt_3d_22.png" alt="" class="fixed-vi"/><br />
+						여기 아래에 보면 기존 의상들의 Bone이 이미 Hips의 하위 요소로서 들어있는 것을 볼 수 있는데, 옷이 본체를 따라다니기 위해서는 옷의 뼈대(Bone)가 본체 뼈대의 위치 변화에 대응해야 하고, 
+						의상을 본체에 종속시키는 개념으로 이를 구현하는 것이라고 볼 수 있다. 현실에서도 옷이 나의 일부가 되는 것이지 내가 옷의 일부가 되는 것이 아니듯 말이다.<br /><br />
+						<img src="images/unt_3d_23.png" alt="" class="fixed-vi"/><br />
+						(사진 우클릭 -> 새 탭에서 이미지 열기로 크게 볼 수 있다.)<br />
+						전부는 아니지만 펼쳐 보면 안에 의상의 본이 각 요소의 이름에 맞게 들어가 있는 것을 알 수 있다. 오늘은 여기까지 알아보고, 다음 시간에 이 작업을 실제로 한번 해볼 것이다.
 					</p>
 				</div>
 			</div>
