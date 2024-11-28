@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-	<title>Cat Grass | Unity 2편</title>
+	<title>Cat Grass | Blog.3D</title>
 	<meta charset="utf-8" />
 	<meta name="description" content="wow">
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -83,42 +83,22 @@
 			<!-- Main -->
 			<div id="main">
 				<div class="inner">
-					<h1>#Unity.3D / 2편. Asset 불러오고 살펴보기</h1>
+					<h1>#Unity.3D / 3편. 실제 작업 들어가기</h1>
 					<h3>0. 오늘 할 것</h3>
 					<p>
-						1편에서 VCC를 설치하고, 당장 필요한 최소한의 컴포넌트를 설치하는 작업을 진행하였다. 이번 2편에서는 1편에서 잠깐 참고자료로서 사용되었던 사진처럼 의상을 교체하는 작업을 해볼까 했으나,
-						이론적인 설명이 조금 필요하다고 판단하여 3편으로 미루고 먼저 Asset을 불러온 다음 살펴보는 시간을 가져볼 것이다.<br />
+						드디어 교체 작업을 해볼 것이다. 작업 특성상 조금 숭한 장면이 나오는데 웬만하면 가리긴 할 것이다.
 
 						<img src="images/unt_3d_1_before.png" alt="" class="fixed-size"/>
 						<img src="images/unt_3d_1_after.png" alt="" class="fixed-size"/><br />
-						(자료로 잠깐 등장했던 Before -> After 사진)
+						(두 번이나 자료로 등장했던 Before -> After 사진)
 					</p>
 						
-					<h3>1. Asset 불러오기</h3>
+					<h3>1. 의상 가져오기</h3>
 					<p>
-						<img src="images/unt_3d_11.png" alt="" class="fixed-vi" /><br />
-						저번 1편에서 구성한 프로젝트를 열어 보면, 당연하겠지만 아무것도 없이 텅 비어있다. 이제 여기에 에셋을 하나하나 불러오고(import), 하나의 workspace를 꾸미고, 하고싶은 작업을 하면 된다.<br /><br />
-						<img src="images/unt_3d_12.png" alt="" class="fixed-size"/><br />
-						위쪽 리본 메뉴에서 Assets > Import Package > Custom Package 순으로 선택하여 에셋 패키지를 불러온다.<br /><br />
-						<img src="images/unt_3d_13.png" alt="" class="fixed-vi"/><br />
-						우리는 이 4개의 패키지를 불러올 것인데, 동시에 import할 수 없기 때문에 하나씩 순서 상관 없이 전부 불러와 주면 되겠다.<br /><br />
-						<img src="images/unt_3d_14.png" alt="" class="fixed-vi"/><br />
-						각 패키지를 불러올 때마다 이렇게 뭘 가져올 것인지 물어볼 것인데, All 누르고 Import 해주면 된다.<br /><br />
-						<img src="images/unt_3d_15.png" alt="" class="fixed-vi"/><br />
-						만일 이런 창이 뜬다면 그냥 'Yes, for these and other files that might be found later' 를 눌러주자.<br /><br />
-						<img src="images/unt_3d_16.png" alt="" class="fixed-vi"/><br />
-						다 불러왔는데, 어라? 처음에 비해 무엇이 달라졌는지 알 수가 없다. 무언가 잘못된 것일까?<br /><br />
-						<img src="images/unt_3d_17.png" alt="" class="fixed-vi"/><br />
-						아니다. 좌하단 Project 탭을 보면 무언가 폴더가 많이 생겨있는 것을 알 수 있다. 여기서 가장 상위 디렉토리를 선택해 주고, 가장 기본적인 아바타 본체를 가져와 준다.<br />
-						꺼내오는 방법은 몇 가지가 있는데, 우리는 Hierachy('하이어라키' 라고 읽는다)로 드래그해서 가져올 것이다.<br />
-						<img src="images/unt_3d_18.png" alt="" class="fixed-vi"/><br />
-						<img src="images/unt_3d_19.png" alt="" class="fixed-vi"/><br />
-						드래그하면 아바타 본체가 튀어나올 텐데, 일단 다른 것은 놔둔 채로 의상이 아바타에 어떻게 들어있나 구조를 한번 살펴보자.<br />
-
-
-
-
-
+						<img src="images/unt_3d_24.png" alt="" class="fixed-vi"/><br />
+						저번 시간까지 진행을 완료한 프로젝트의 모습이다.<br />
+						<img src="images/unt_3d_25.png" alt="" class="fixed-vi"/><br />
+						의상 두 개를 저번 시간에 했던 것처럼 하이어라키로 드래그해서 가져와 보자. 의상 색 바리에이션이 많던데 사용할 색으로 가져오면 될 것 같다. 필자는 일단 필자 취향대로 가도록 하겠다.<br /><br />
 						
 
 					<h3>2. 뜯어보기</h3>
