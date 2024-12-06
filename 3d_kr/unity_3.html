@@ -86,8 +86,7 @@
 					<h1>#Unity.3D / 3편. 실제 작업 들어가기</h1>
 					<h3>0. 오늘 할 것</h3>
 					<p>
-						드디어 교체 작업을 해볼 것이다. 작업 특성상 조금 숭한 장면이 나오는데 웬만하면 가리긴 할 것이다.
-
+						드디어 교체 작업을 해볼 것이다. 본래 2주는 일찍 끝났어야 할 간단한 것이었는데, 필자 집안 사정이나 여타 예상치 못한 부분 때문에 많이 딜레이되어 이번 3편에서 두 의상 모두 붙여볼 것이다.<br />
 						<img src="images/unt_3d_1_before.png" alt="" class="fixed-size"/>
 						<img src="images/unt_3d_1_after.png" alt="" class="fixed-size"/><br />
 						(두 번이나 자료로 등장했던 Before -> After 사진)
@@ -99,25 +98,47 @@
 						저번 시간까지 진행을 완료한 프로젝트의 모습이다.<br />
 						<img src="images/unt_3d_25.png" alt="" class="fixed-vi"/><br />
 						의상 두 개를 저번 시간에 했던 것처럼 하이어라키로 드래그해서 가져와 보자. 의상 색 바리에이션이 많던데 사용할 색으로 가져오면 될 것 같다. 필자는 일단 필자 취향대로 가도록 하겠다.<br /><br />
+						보통 하이어라키로 드래그해서 가져오게 되면 Position이 0, 0, 0 좌표로 설정되어 있을 것이다. 가장 상위 Parent를 선택하면 Position, Scale, Rotation 값을 볼 수 있다.<br />
+						<img src="images/unt_3d_26.png" alt="" class="fixed-vi"/><br /><br />
+						이제 다 불러왔으면 각 패키지 최상단 Parent를 오른쪽 클릭하고, Prefab -> Unpack Completely를 선택해서 아바타와 의상 두 개를 언팩해주자.
+						<img src="images/unt_3d_prefab_unpack.png"/><br /><br />
 
-
-					<h3>2. 뜯어보기</h3>
+					<h3>2. Coffee Knit 붙여보기</h3>
 					<p>
-						Hierachy라고 하면 단어가 생소할 수도 있는데, 어떠한 객체(Object)의 하위 구성 요소(Components)들을 한 눈에 볼 수 있도록 하는 일종의 구조도(Structure Chart)라고 이해하면 편할 것 같다.
-						일단 각설하고 빠르게 살펴보자.<br /><br />
-						<img src="images/unt_3d_20.png" alt="" class="fixed-vi"/><br />
-						먼저 우리가 처음으로 불러온 아바타 본체, [0627 후야v2] 옆에 있는 화살표를 눌러보면 이런 구성 요소들이 나올 것이다. 우리가 앞으로 건드릴 것은 [Armature_2]인데, 
-						한국어로 번역하게 되면 골조, 철근 등으로 해석할 수 있다.<br /><br />
+						<img src="images/unt_3d_27.png"/><br />
+						첫번째로 가장 파츠가 적은 Coffee Knit를 붙여보자. 패키지 이름은 02_Moe로 되어있지만 식별이 용이하도록 Coffe_Knit로 Refactor 해주도록 하겠다. 작업자의 식별이 용이하도록만 하면 되기 때문에, 어떤 이름이든 취향껏 해도 좋다.<br /><br />
+						<img src="images/unt_3d_28.png"/><br />
+						보이기 / 숨기기 버튼으로 불러온 두 개의 의상 중 Coffee Knit를 제외한 나머지 한 개의 옷을 잠시 숨겨주고,<br /><br />
+						<img src="images/unt_3d_29.png"/><br />
+						기존 '쉬프트' 의상은 동그라미 친 부분 체크를 풀어서 아예 비활성화하자.<br /><br />
+						<img src="images/unt_3d_30.png" class="fixed-vi"/><br />
+						위 과정이 문제없이 완료되면 이러한 모습일 것이다. 겉으로 보이기엔 제대로 의상이 입혀져 있는 것 같지만 사실은 아니다. 몸과 옷이 따로 놀고 있기 때문에, 몸을 움직이면 옷은 고정된 채로 공중부양하게 될 것이다.
+						따라서 우리는 옷을 몸에 종속시키는 작업을 통해 몸의 움직임을 옷이 따라가도록 해야만 한다.<br /><br />
+						<img src="images/unt_3d_31.png"/><br />
+						Coffee Knit의 하위 요소를 보면 Armature가 존재할 것인데, 이걸 열어보면 최상위에 Hips가 자리하고 있을 것이다. 이걸 바로 아바타에 넣게 되면 식별하는 데에 어려움이 있기 때문에, 넣기 전에 미리 이름을 수정할 것이다.
+						Naming Convention(작명 규칙)은 기존에 붙어있던 의상과 동일하게 진행할 것이다.<br /><br />
+						<img src="images/unt_3d_33.png"/><br />
+						기존 의상의 작명 규칙은 [(의상명) + _ + (부위명)] 이었으니, 필자 또한 동일하게 진행하였다. 다만 의상 이름이 길어 KN으로 임의적으로 줄여 사용하였으니 양해 바란다.<br /><br />
+						<img src="images/unt_3d_34.png"/><br />
+						이제 정말 시작할 것인데, 사실 이제 공장처럼 반복작업을 하면 된다. 일단 가장 먼저 의상의 Armature 안에 있던 Hips를 아바타의 Hips 하위로 드래그해서 옮긴다.<br /><br />
+						<img src="images/unt_3d_36.png"/> (옮기기 전)<br />
+						<img src="images/unt_3d_35.png"/> (옮긴 후)<br />
+						다음으로 Left Leg와 Right Leg를 아바타의 Left Leg, Right Leg 하위로 옮겨준다.<br /><br />
+						<img src="images/unt_3d_37.png"/> (옮기기 전)<br />
+						<img src="images/unt_3d_38.png"/> (옮긴 후)<br />
+						이로서 하의는 끝났고, 다음은 상의의 시작인 Spine이다. 똑같이 하위로 옮겨준다.<br /><br />
+						<img src="images/unt_3d_39.png"/> (옮기기 전)<br />
+						<img src="images/unt_3d_40.png"/> (옮긴 후)<br />
+						Chest도 옮겨주고...<br /><br />
+						<img src="images/unt_3d_41.png"/> (옮기기 전)<br />
+						<img src="images/unt_3d_42.png"/> (옮긴 후)<br />
+						Left, Right shoulder도 옮겨주고...<br /><br />
+						<img src="images/unt_3d_43.png"/> (옮기기 전)<br />
+						<img src="images/unt_3d_44.png"/> (옮긴 후)<br />
+						Neck도 옮겨주면 끝이다. 이로서 상의도 끝났고, Cofee Knit는 이제 다 붙인 것이다.<br /><br />
+						<img src="images/unt_3d_45.png"/> <img src="images/unt_3d_46.png"/><br />
+						다 끝났으니 의상 본체를 아바타 패키지 내로 옮겨주자.
 
-						<img src="images/unt_3d_21.png" alt="" class="fixed-vi"/><br />
-						가장 상위의 'Hips'를 펼쳐 보면 하위 요소들이 나오는데, 여기서 먼저 알 수 있는 사실이 하나 있다. 바로 Unity에서는 인체 골조가 Hips로부터 시작하여 말단까지 뻗어간다는 것이다. 
-						보통 땅에 붙어있는 발부터 시작할 것이라고 생각하기 쉬운데, 필자 또한 이걸 공부하기 전에는 그렇게 생각했다.<br /><br />
-						<img src="images/unt_3d_22.png" alt="" class="fixed-vi"/><br />
-						여기 아래에 보면 기존 의상들의 Bone이 이미 Hips의 하위 요소로서 들어있는 것을 볼 수 있는데, 옷이 본체를 따라다니기 위해서는 옷의 뼈대(Bone)가 본체 뼈대의 위치 변화에 대응해야 하고, 
-						의상을 본체에 종속시키는 개념으로 이를 구현하는 것이라고 볼 수 있다. 현실에서도 옷이 나의 일부가 되는 것이지 내가 옷의 일부가 되는 것이 아니듯 말이다.<br /><br />
-						<img src="images/unt_3d_23.png" alt="" class="fixed-vi"/><br />
-						(사진 우클릭 -> 새 탭에서 이미지 열기로 크게 볼 수 있다.)<br />
-						전부는 아니지만 펼쳐 보면 안에 의상의 본이 각 요소의 이름에 맞게 들어가 있는 것을 알 수 있다. 오늘은 여기까지 알아보고, 다음 시간에 이 작업을 실제로 한번 해볼 것이다.
 					</p>
 				</div>
 			</div>
