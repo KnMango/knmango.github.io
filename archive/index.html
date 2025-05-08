@@ -9,25 +9,27 @@
 <body>
   <!--header-->
   <header>
-    <div class="top-nav">
-      <a href="" class="logo" style="text-decoration: none;">
-        <span style="text-shadow:1px 0px #8DAAC8, 0px 1px #8DAAC8, -1px 0px #8DAAC8, 0px -1px #8DAAC8, 0px 0px 7px #8DAAC8;color:#fff">Card</span><span style="text-shadow:1px 0px #BD8ECA, 0px 1px #BD8ECA, -1px 0px #BD8ECA, 0px -1px #BD8ECA, 0px 0px 7px #BD8ECA;color:#fff">Verse</span>
-      </a>
-      <div class="search-bar">
-        <div class="search-container">
-          <input type="text" placeholder="게시글이나 상품을 검색해 보세요!" />
-          <button type="submit">🔍</button>
+    <div class="container">
+      <div class="top-nav">
+        <a href="" class="logo" style="text-decoration: none;">
+          <span style="text-shadow:1px 0px #8DAAC8, 0px 1px #8DAAC8, -1px 0px #8DAAC8, 0px -1px #8DAAC8, 0px 0px 7px #8DAAC8;color:#fff">Card</span><span style="text-shadow:1px 0px #BD8ECA, 0px 1px #BD8ECA, -1px 0px #BD8ECA, 0px -1px #BD8ECA, 0px 0px 7px #BD8ECA;color:#fff">Verse</span>
+        </a>
+        <div class="search-bar">
+          <div class="search-container">
+            <input type="text" placeholder="게시글이나 상품을 검색해 보세요!" />
+            <button type="submit">🔍</button>
+          </div>
         </div>
+        <nav>
+          <ul>
+            <li><a href="nhead/aboutus.html">회사소개</a></li>
+            <li><a href="#">장바구니</a></li>
+            <li><a href="#">마이페이지</a></li>
+            <li><a href="#">고객센터</a></li>
+            <li><a href="#">로그인</a></li>
+          </ul>
+        </nav>
       </div>
-      <nav>
-        <ul>
-          <li><a href="nhead/aboutus.html">회사소개</a></li>
-          <li><a href="#">장바구니</a></li>
-          <li><a href="#">마이페이지</a></li>
-          <li><a href="#">고객센터</a></li>
-          <li><a href="#">로그인</a></li>
-        </ul>
-      </nav>
     </div>
     
     <!-- 서브nav -->
@@ -75,144 +77,146 @@
     </div>
   </header>
   
-  <!-- 헤더아래 배너(브루스 배너 아님) -->
-  <main>
-    <div class="banner">
-        <div class="slide-container">
-            <div class="slide"></div>
-            <div class="slide"></div>
-            <div class="slide"></div>
+  <div class="container">
+    <!-- 헤더아래 배너(브루스 배너 아님) -->
+    <main>
+      <div class="banner">
+          <div class="slide-container">
+              <div class="slide"></div>
+              <div class="slide"></div>
+              <div class="slide"></div>
+          </div>
+          <button class="prev">&#10094;</button>
+          <button class="next">&#10095;</button>
+          <div class="indicator">1 / 3</div>
+          <button class="pause-toggle">⏸</button>
         </div>
-        <button class="prev">&#10094;</button>
-        <button class="next">&#10095;</button>
-        <div class="indicator">1 / 3</div>
-        <button class="pause-toggle">⏸</button>
-      </div>
-    <div class="boards-container">
-      <div class="section">
-        <h2>공지사항</h2>
-        <div class="notice-board">
-          <ul>
-            <li>
-              <a href="#">최근 공지사항</a>
-              <span class="post-date">2025-04-25 10:00</span>
-            </li>
-            <li>
-              <a href="#">앞전 공지사항</a>
-              <span class="post-date">2025-04-24 09:30</span>
-            </li>
-            <li>
-              <a href="#">그 전 공지사항</a>
-              <span class="post-date">2025-04-23 14:20</span>
-            </li>
-          </ul>
+      <div class="boards-container">
+        <div class="section">
+          <h2>공지사항</h2>
+          <div class="notice-board">
+            <ul>
+              <li>
+                <a href="#">최근 공지사항</a>
+                <span class="post-date">2025-04-25 10:00</span>
+              </li>
+              <li>
+                <a href="#">앞전 공지사항</a>
+                <span class="post-date">2025-04-24 09:30</span>
+              </li>
+              <li>
+                <a href="#">그 전 공지사항</a>
+                <span class="post-date">2025-04-23 14:20</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="section">
+          <h2>자유게시판 새 글</h2>
+          <div class="free-board">
+            <ul>
+              <li>
+                <a href="#">쟤는 잘 먹는데 왜 나만 안 나와</a>
+                <span class="post-date">2025-04-25 11:00</span>
+              </li>
+              <li>
+                <a href="#">아래 자랑하는사람 쳐내라</a>
+                <span class="post-date">2025-04-24 16:45</span>
+              </li>
+              <li>
+                <a href="#">한팩까서나왔는데이거좋나요</a>
+                <span class="post-date">2025-04-23 13:15</span>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
-      <div class="section">
-        <h2>자유게시판 새 글</h2>
-        <div class="free-board">
-          <ul>
-            <li>
-              <a href="#">쟤는 잘 먹는데 왜 나만 안 나와</a>
-              <span class="post-date">2025-04-25 11:00</span>
-            </li>
-            <li>
-              <a href="#">아래 자랑하는사람 쳐내라</a>
-              <span class="post-date">2025-04-24 16:45</span>
-            </li>
-            <li>
-              <a href="#">한팩까서나왔는데이거좋나요</a>
-              <span class="post-date">2025-04-23 13:15</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
 
-    <!-- 최근 등록 카드 -->
-    <div class="recent-products">
-      <h2>최근에 등록된 중고 카드</h2>
-      <div class="product-grid">
-        <div class="product-item">
-          <img src="doge.jpg" alt="상품 1" />
-          <div class="product-info">
-            <a href="#">카드 1</a>
-            <span class="product-date">2025-04-25 15:30</span>
+      <!-- 최근 등록 카드 -->
+      <div class="recent-products">
+        <h2>최근에 등록된 중고 카드</h2>
+        <div class="product-grid">
+          <div class="product-item">
+            <img src="doge.jpg" alt="상품 1" />
+            <div class="product-info">
+              <a href="#">카드 1</a>
+              <span class="product-date">2025-04-25 15:30</span>
+            </div>
           </div>
-        </div>
-        <div class="product-item">
-          <img src="doge.jpg" alt="상품 2" />
-          <div class="product-info">
-            <a href="#">카드 2</a>
-            <span class="product-date">2025-04-24 09:15</span>
+          <div class="product-item">
+            <img src="doge.jpg" alt="상품 2" />
+            <div class="product-info">
+              <a href="#">카드 2</a>
+              <span class="product-date">2025-04-24 09:15</span>
+            </div>
           </div>
-        </div>
-        <div class="product-item">
-          <img src="doge.jpg" alt="상품 3" />
-          <div class="product-info">
-            <a href="#">카드 3</a>
-            <span class="product-date">2025-04-23 12:45</span>
+          <div class="product-item">
+            <img src="doge.jpg" alt="상품 3" />
+            <div class="product-info">
+              <a href="#">카드 3</a>
+              <span class="product-date">2025-04-23 12:45</span>
+            </div>
           </div>
-        </div>
-        <div class="product-item">
-          <img src="doge.jpg" alt="상품 4" />
-          <div class="product-info">
-            <a href="#">카드 4</a>
-            <span class="product-date">2025-04-22 10:00</span>
+          <div class="product-item">
+            <img src="doge.jpg" alt="상품 4" />
+            <div class="product-info">
+              <a href="#">카드 4</a>
+              <span class="product-date">2025-04-22 10:00</span>
+            </div>
           </div>
-        </div>
-        <div class="product-item">
-          <img src="doge.jpg" alt="상품 5" />
-          <div class="product-info">
-            <a href="#">카드 5</a>
-            <span class="product-date">2025-04-21 14:20</span>
+          <div class="product-item">
+            <img src="doge.jpg" alt="상품 5" />
+            <div class="product-info">
+              <a href="#">카드 5</a>
+              <span class="product-date">2025-04-21 14:20</span>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-        <!-- 신상품 -->
-        <div class="recent-products">
-          <h2>신상 카드 팩</h2>
-          <div class="product-grid">
-            <div class="product-item">
-              <img src="doge.jpg" alt="상품 1" />
-              <div class="product-info">
-                <a href="#">카드팩 1</a>
-                <span class="product-date">2025-04-25 15:30</span>
+          <!-- 신상품 -->
+          <div class="recent-products">
+            <h2>신상 카드 팩</h2>
+            <div class="product-grid">
+              <div class="product-item">
+                <img src="doge.jpg" alt="상품 1" />
+                <div class="product-info">
+                  <a href="#">카드팩 1</a>
+                  <span class="product-date">2025-04-25 15:30</span>
+                </div>
               </div>
-            </div>
-            <div class="product-item">
-              <img src="doge.jpg" alt="상품 2" />
-              <div class="product-info">
-                <a href="#">카드팩 2</a>
-                <span class="product-date">2025-04-24 09:15</span>
+              <div class="product-item">
+                <img src="doge.jpg" alt="상품 2" />
+                <div class="product-info">
+                  <a href="#">카드팩 2</a>
+                  <span class="product-date">2025-04-24 09:15</span>
+                </div>
               </div>
-            </div>
-            <div class="product-item">
-              <img src="doge.jpg" alt="상품 3" />
-              <div class="product-info">
-                <a href="#">카드팩 3</a>
-                <span class="product-date">2025-04-23 12:45</span>
+              <div class="product-item">
+                <img src="doge.jpg" alt="상품 3" />
+                <div class="product-info">
+                  <a href="#">카드팩 3</a>
+                  <span class="product-date">2025-04-23 12:45</span>
+                </div>
               </div>
-            </div>
-            <div class="product-item">
-              <img src="doge.jpg" alt="상품 4" />
-              <div class="product-info">
-                <a href="#">카드팩 4</a>
-                <span class="product-date">2025-04-22 10:00</span>
+              <div class="product-item">
+                <img src="doge.jpg" alt="상품 4" />
+                <div class="product-info">
+                  <a href="#">카드팩 4</a>
+                  <span class="product-date">2025-04-22 10:00</span>
+                </div>
               </div>
-            </div>
-            <div class="product-item">
-              <img src="doge.jpg" alt="상품 5" />
-              <div class="product-info">
-                <a href="#">카드팩 5</a>
-                <span class="product-date">2025-04-21 14:20</span>
+              <div class="product-item">
+                <img src="doge.jpg" alt="상품 5" />
+                <div class="product-info">
+                  <a href="#">카드팩 5</a>
+                  <span class="product-date">2025-04-21 14:20</span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-  </main>
+    </main>
+  </div>
   
   <!-- 푸터 -->
   <footer>

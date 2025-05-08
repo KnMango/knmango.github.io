@@ -9,15 +9,21 @@
     line-height: 1.6;
     background-color: #fafafa;
     color: #333;
+    padding: 0 0px;
+  }
+  
+  .container {
     max-width: 1280px;
     margin: 0 auto;
-    padding: 0 20px;
   }
   
   /* header */
   header {
     background-color: #222;
     border-bottom: 1px solid #ccc;
+    width: 100vw;
+    margin-left: calc(-20px - 50vw + 50%);
+    margin-right: calc(-20px - 50vw + 50%);
   }
   .top-nav {
     display: flex;
@@ -88,6 +94,7 @@
     padding: 10px 0;
     background-color: #fff;
     border-bottom: 1px solid #ddd;
+    width: 100%;
   }
   .sub-nav .dropdown {
     position: relative;
@@ -346,11 +353,13 @@
   
   /* footer */
   footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
+    width: 100vw;
+    margin-left: calc(-20px - 50vw + 50%);
+    margin-right: calc(-20px - 50vw + 50%);
     padding: 20px;
-    font-size: 14px;
+    background-color: #222;
+    text-align: center;
+    border-top: 1px solid #ddd;
   }
   footer a {
     color: #fff;
