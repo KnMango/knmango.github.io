@@ -174,7 +174,7 @@
     height: 100%;
     transition: transform 0.5s ease;
   }
-  /* 각 슬라이드: 배너 전체 크기 (100%) */
+  /* 슬라이드 스타일 정의 - 배너 전체 사이즈 (100%) */
   .slide {
       width: 100%;
       height: 100%;
