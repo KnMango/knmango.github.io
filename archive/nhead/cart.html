@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CardVerse - 장바구니</title>
+  <link rel="stylesheet" href="assets/mainstyle.css" />
+</head>
+<body>
+  <!--header-->
+  <header>
+    <div class="container">
+      <div class="top-nav">
+        <a href="../index.html" class="logo" style="text-decoration: none;">
+          <span style="text-shadow:1px 0px #8DAAC8, 0px 1px #8DAAC8, -1px 0px #8DAAC8, 0px -1px #8DAAC8, 0px 0px 7px #8DAAC8;color:#fff">Card</span><span style="text-shadow:1px 0px #BD8ECA, 0px 1px #BD8ECA, -1px 0px #BD8ECA, 0px -1px #BD8ECA, 0px 0px 7px #BD8ECA;color:#fff">Verse</span>
+        </a>
+        <div class="search-bar">
+          <div class="search-container">
+            <input type="text" placeholder="게시글이나 상품을 검색해 보세요!" />
+            <button type="submit">🔍</button>
+          </div>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="./aboutus.html">회사소개</a></li>
+            <li><a href="./cart.html">장바구니</a></li>
+            <li><a href="./mypage.html">마이페이지</a></li>
+            <li><a href="./cscenter.html">고객센터</a></li>
+            <li><a href="./login.html">로그인</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <main>
+      <div class="cart-container">
+        <h2>장바구니</h2>
+        
+        <!-- 장바구니 상품 목록 -->
+        <div class="cart-items">
+          <div class="cart-header">
+            <div class="select-all">
+              <input type="checkbox" id="selectAll">
+              <label for="selectAll">전체선택</label>
+            </div>
+            <div class="cart-info">
+              <span>상품정보</span>
+              <span>수량</span>
+              <span>상품금액</span>
+              <span>배송비</span>
+              <span>합계</span>
+              <span>관리</span>
+            </div>
+          </div>
+
+          <!-- 장바구니 상품 예시 -->
+          <div class="cart-item">
+            <div class="item-checkbox">
+              <input type="checkbox" name="item" id="item1">
+            </div>
+            <div class="item-info">
+              <img src="assets/images/doge.jpg" alt="상품 이미지">
+              <div class="item-details">
+                <h3>포켓몬 카드 - 피카츄</h3>
+                <p>상품번호: PKM001</p>
+                <p>옵션: 일반</p>
+              </div>
+            </div>
+            <div class="item-quantity">
+              <button class="quantity-btn minus">-</button>
+              <input type="number" value="1" min="1" max="99">
+              <button class="quantity-btn plus">+</button>
+            </div>
+            <div class="item-price">50,000원</div>
+            <div class="item-shipping">무료</div>
+            <div class="item-total">50,000원</div>
+            <div class="item-actions">
+              <button class="btn-delete">삭제</button>
+              <button class="btn-wish">찜하기</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 장바구니 요약 -->
+        <div class="cart-summary">
+          <div class="summary-item">
+            <span>상품금액</span>
+            <span>50,000원</span>
+          </div>
+          <div class="summary-item">
+            <span>배송비</span>
+            <span>0원</span>
+          </div>
+          <div class="summary-item total">
+            <span>총 결제금액</span>
+            <span>50,000원</span>
+          </div>
+        </div>
+
+        <!-- 결제 버튼 -->
+        <div class="cart-actions">
+          <button class="btn-continue">계속 쇼핑하기</button>
+          <button class="btn-checkout">주문하기</button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- 푸터 -->
+  <footer>
+    <a href="#">이용약관</a> | 
+    <a href="#">개인정보처리방침</a> | 
+    <a href="#">사이트맵</a> | 
+    <a href="#">오프라인 대회 규정</a>
+  </footer>
+</body>
+</html> 

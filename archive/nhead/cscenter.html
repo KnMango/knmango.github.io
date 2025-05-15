@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CardVerse</title>
+  <link rel="stylesheet" href="assets/mainstyle.css" />
+</head>
+<body>
+  <!--header-->
+  <header>
+    <div class="container">
+      <div class="top-nav">
+        <a href="../index.html" class="logo" style="text-decoration: none;">
+          <span style="text-shadow:1px 0px #8DAAC8, 0px 1px #8DAAC8, -1px 0px #8DAAC8, 0px -1px #8DAAC8, 0px 0px 7px #8DAAC8;color:#fff">Card</span><span style="text-shadow:1px 0px #BD8ECA, 0px 1px #BD8ECA, -1px 0px #BD8ECA, 0px -1px #BD8ECA, 0px 0px 7px #BD8ECA;color:#fff">Verse</span>
+        </a>
+        <div class="search-bar">
+          <div class="search-container">
+            <input type="text" placeholder="게시글이나 상품을 검색해 보세요!" />
+            <button type="submit">🔍</button>
+          </div>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="./aboutus.html">회사소개</a></li>
+            <li><a href="./cart.html">장바구니</a></li>
+            <li><a href="./mypage.html">마이페이지</a></li>
+            <li><a href="./cscenter.html">고객센터</a></li>
+            <li><a href="./login.html">로그인</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    
+    <!-- 서브nav -->
+    <div class="sub-nav">
+      <div class="dropdown">
+        <button type="button">신규카드</button>
+        <ul class="dropdown-menu">
+          <li><a href="#">25년 1분기</a></li>
+          <li><a href="#">25년 2분기</a></li>
+          <li><a href="#">25년 3분기 예약</a></li>
+          <li><a href="#">25년 4분기 예약</a></li>
+        </ul>
+      </div>
+      <div class="dropdown">
+        <button type="button">카테고리</button>
+        <ul class="dropdown-menu">
+          <li><a href="#">게임별 분류</a></li>
+          <li><a href="#">출시 연도별 분류</a></li>
+          <li><a href="#">테마별 분류</a></li>
+          <li><a href="#">레어도별 분류</a></li>
+          <li><a href="#">발매 지역별 분류</a></li>
+        </ul>
+      </div>
+      <div class="dropdown">
+        <button type="button">카드 옥션</button>
+        <ul class="dropdown-menu">
+          <li><a href="#">중고 카드</a></li>
+          <li><a href="#">카드 시세</a></li>
+          <li><a href="#">내 카드 팔기</a></li>
+        </ul>
+      </div>
+      <div class="dropdown">
+        <button type="button">상세검색</button>
+        </ul>
+      </div>
+      <div class="dropdown">
+        <button type="button">커뮤니티</button>
+        <ul class="dropdown-menu">
+          <li><a href="#">자유게시판</a></li>
+          <li><a href="#">질문있어요</a></li>
+          <li><a href="#">게임별 게시판 목록</a></li>
+        </ul>
+      </div>
+      <button type="button">입문자용 Quick Guide</button>
+    </div>
+  </header>
+  <div class="container">
+  <main>
+    <h1>고객센터</h1>
+    
+    <div class="cs-container">
+
+      <div class="cs-menu">
+        <div class="cs-menu-item active">
+          <h3>자주 묻는 질문</h3>
+          <ul>
+            <li><a href="#faq-order">주문/결제</a></li>
+            <li><a href="#faq-delivery">배송</a></li>
+            <li><a href="#faq-return">교환/반품</a></li>
+            <li><a href="#faq-community">커뮤니티</a></li>
+          </ul>
+        </div>
+        <div class="cs-menu-item">
+          <h3>공지사항</h3>
+          <ul>
+            <li><a href="#notice">공지사항</a></li>
+            <li><a href="#event">이벤트</a></li>
+            <li><a href="#update">업데이트</a></li>
+          </ul>
+        </div>
+        <div class="cs-menu-item">
+          <h3>1:1 문의</h3>
+          <p>문의하실 내용을 작성해 주시면<br>빠르게 답변 드리겠습니다.</p>
+          <button class="inquiry-btn">문의하기</button>
+        </div>
+      </div>
+
+      <div class="faq-section">
+        <h2>자주 묻는 질문</h2>
+        <div class="faq-category" id="faq-order">
+          <h3>주문/결제</h3>
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Q. 사용할 수 있는 결제 수단이 알고 싶습니다.</span>
+              <button class="toggle-btn">▼</button>
+            </div>
+            <div class="faq-answer">
+              <p>A. CardVerse는 토스페이, 카카오페이, 네이버페이와 카드결제, 무통장 입금을 지원하고 있습니다.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-category" id="faq-delivery">
+          <h3>배송</h3>
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Q. 출고 및 배송 소요 시간이 알고 싶습니다.</span>
+              <button class="toggle-btn">▼</button>
+            </div>
+            <div class="faq-answer">
+              <p>A. 출고는 결제 완료 후 1-2 영업일 내, 배송은 지역에 따라 1-3일 정도 소요됩니다. 단, 주말 및 공휴일은 배송이 지연될 수 있습니다.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-category" id="faq-return">
+          <h3>교환/반품</h3>
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Q. 교환 및 반품이 가능한 조건이 궁금합니다.</span>
+              <button class="toggle-btn">▼</button>
+            </div>
+            <div class="faq-answer">
+              <p>A. 수령일로부터 14일 이내, 또는 상품 하자 인지 후 7일 이내에 가능합니다. 중고 카드의 경우 수령일로부터 7일 이내에 가능합니다.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-category" id="faq-community">
+          <h3>커뮤니티</h3>
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Q. 닉네임 변경은 어디서 하는지 알고 싶습니다.</span> 
+              <button class="toggle-btn">▼</button>
+            </div>
+            <div class="faq-answer">
+              <p>A. 마이페이지에서 회원 닉네임을 변경하면 게시판에도 적용됩니다.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <style>
+      .cs-container {
+        display: flex;
+        gap: 2rem;
+        margin: 2rem 0;
+      }
+
+      .cs-menu {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .cs-menu-item {
+        background: #f8f9fa;
+        padding: 1.5rem;
+        border-radius: 8px;
+      }
+
+      .cs-menu-item h3 {
+        margin-bottom: 1rem;
+        color: #333;
+      }
+
+      .cs-menu-item ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .cs-menu-item li {
+        margin: 0.5rem 0;
+      }
+
+      .cs-menu-item a {
+        color: #666;
+        text-decoration: none;
+      }
+
+      .cs-menu-item a:hover {
+        color: #8DAAC8;
+      }
+
+      .inquiry-btn {
+        background: #8DAAC8;
+        color: white;
+        border: none;
+        padding: 0.8rem 1.5rem;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-top: 1rem;
+      }
+
+      .inquiry-btn:hover {
+        background: #7D9AB8;
+      }
+
+      .faq-section {
+        flex: 2;
+      }
+
+      .faq-category {
+        margin-bottom: 2rem;
+      }
+
+      .faq-item {
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        margin-bottom: 1rem;
+      }
+
+      .faq-question {
+        padding: 1rem;
+        background: #f8f9fa;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+      }
+
+      .faq-answer {
+        padding: 1rem;
+        display: none;
+      }
+
+      .faq-answer.active {
+        display: block;
+      }
+
+      .toggle-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 1rem;
+      }
+    </style>
+
+    <script>
+      document.querySelectorAll('.faq-question').forEach(question => {
+        question.addEventListener('click', () => {
+          const answer = question.nextElementSibling;
+          answer.classList.toggle('active');
+          const btn = question.querySelector('.toggle-btn');
+          btn.textContent = answer.classList.contains('active') ? '▲' : '▼';
+        });
+      });
+    </script>
+  </main>
+  </div>
+  <!-- 푸터 -->
+  <footer>
+    <a href="#">이용약관</a> | 
+    <a href="#">개인정보처리방침</a> | 
+    <a href="#">사이트맵</a> | 
+    <a href="#">오프라인 대회 규정</a>
+  </footer>
+</body>
+</html>

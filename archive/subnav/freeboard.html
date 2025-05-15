@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>자유게시판 - CardVerse</title>
+  <link rel="stylesheet" href="https://knmango.github.io/archive/assets/mainstyle.css" />
+  <link rel="stylesheet" href="assets/board.css" />
+</head>
+<body>
+  <!-- header.js가 여기에 헤더를 동적으로 삽입합니다 -->
+  
+  <div class="container">
+    <main>
+      <h1>자유게시판</h1>
+      <button class="write-btn" onclick="location.href='write.html'">글쓰기</button>
+    </main>
+  </div>
+
+  <script src="https://knmango.github.io/archive/assets/header.js"></script>
+  <script src="https://knmango.github.io/archive/assets/footer.js"></script>
+
+  <main class="board-container">
+    <div class="board-header">
+      <h1>자유게시판</h1>
+      <button class="write-btn" onclick="location.href='write.html'">글쓰기</button>
+    </div>
+
+    <table class="board-table">
+      <thead>
+        <tr>
+          <th>번호</th>
+          <th>제목</th>
+          <th>작성자</th>
+          <th>작성일</th>
+          <th>조회</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>3</td>
+          <td><a href="post.html">쟤는 잘 먹는데 왜 나만 안 나와</a></td>
+          <td>호감고닉</td>
+          <td>2025-04-25 11:00</td>
+          <td>128</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><a href="post.html">아래 자랑하는사람 쳐내라</a></td>
+          <td>친구는유동이있어요</td>
+          <td>2025-04-24 16:45</td>
+          <td>256</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td><a href="post.html">한팩까서나왔는데이거좋나요</a></td>
+          <td>늒네받아라</td>
+          <td>2025-04-23 13:15</td>
+          <td>89</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="pagination">
+      <a href="#">&laquo;</a>
+      <a href="#">1</a>
+      <!-- <a href="#">2</a>
+      <a href="#">3</a>
+      <a href="#">4</a>
+      <a href="#">5</a> -->
+      <a href="#">&raquo;</a>
+    </div>
+  </main>
+</body>
+</html>

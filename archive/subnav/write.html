@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CardVerse - 글쓰기</title>
+  <link rel="stylesheet" href="../assets/mainstyle.css" />
+  <link rel="stylesheet" href="assets/board.css" />
+  <style>
+    .write-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .write-form {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+    .form-group input[type="text"] {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+    .form-group textarea {
+      width: 100%;
+      height: 300px;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      resize: vertical;
+    }
+    .button-group {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .cancel-btn {
+      padding: 8px 16px;
+      background-color: #6c757d;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .submit-btn {
+      padding: 8px 16px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .cancel-btn:hover {
+      background-color: #5a6268;
+    }
+    .submit-btn:hover {
+      background-color: #0056b3;
+    }
+    /* 텍스트 서식 도구 스타일 */
+    .format-toolbar {
+      display: flex;
+      gap: 5px;
+      padding: 10px;
+      background: #f8f9fa;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+    .format-btn {
+      padding: 5px 10px;
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .format-btn:hover {
+      background: #e9ecef;
+    }
+    .format-btn.active {
+      background: #007bff;
+      color: white;
+      border-color: #0056b3;
+    }
+    /* 파일 첨부 스타일 */
+    .file-upload {
+      margin-top: 10px;
+    }
+    .file-list {
+      margin-top: 10px;
+    }
+    .file-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 5px;
+      background: #f8f9fa;
+      border-radius: 4px;
+      margin-bottom: 5px;
+    }
+    .file-item button {
+      padding: 2px 8px;
+      background: #dc3545;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .file-item button:hover {
+      background: #c82333;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="top-nav">
+        <a href="" class="logo" style="text-decoration: none;">
+          <span style="text-shadow:1px 0px #8DAAC8, 0px 1px #8DAAC8, -1px 0px #8DAAC8, 0px -1px #8DAAC8, 0px 0px 7px #8DAAC8;color:#fff">Card</span><span style="text-shadow:1px 0px #BD8ECA, 0px 1px #BD8ECA, -1px 0px #BD8ECA, 0px -1px #BD8ECA, 0px 0px 7px #BD8ECA;color:#fff">Verse</span>
+        </a>
+        <div class="search-bar">
+          <div class="search-container">
+            <input type="text" placeholder="게시글이나 상품을 검색해 보세요!" />
+            <button type="submit">🔍</button>
+          </div>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="nhead/aboutus.html">회사소개</a></li>
+            <li><a href="#">장바구니</a></li>
+            <li><a href="#">마이페이지</a></li>
+            <li><a href="#">고객센터</a></li>
+            <li><a href="#">로그인</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    
+    <!-- 서브nav -->
+    <div class="sub-nav">
+      <div class="dropdown">
+        <button type="button">신규카드</button>
+        <ul class="dropdown-menu">
+          <li><a href="subnav/25y1q.html">25년 1분기</a></li>
+          <li><a href="subnav/25y2q.html">25년 2분기</a></li>
+          <li><a href="subnav/25y3q.html">25년 3분기 예약</a></li>
+          <li><a href="subnav/25y4q.html">25년 4분기 예약</a></li>
+        </ul>
+      </div>
+      <div class="dropdown">
+        <button type="button">카테고리</button>
+        <ul class="dropdown-menu">
+          <li><a href="subnav/game.html">게임별 분류</a></li>
+          <li><a href="subnav/year.html">출시 연도별 분류</a></li>
+          <li><a href="subnav/theme.html">테마별 분류</a></li>
+          <li><a href="subnav/rarity.html">레어도별 분류</a></li>
+          <li><a href="#">발매 지역별 분류</a></li>
+        </ul>
+      </div>
+      <div class="dropdown">
+        <button type="button">카드 옥션</button>
+        <ul class="dropdown-menu">
+          <li><a href="subnav/used.html">중고 카드</a></li>
+          <li><a href="subnav/price.html">카드 시세</a></li>
+          <li><a href="subnav/sell.html">내 카드 팔기</a></li>
+        </ul>
+      </div>
+      <div class="dropdown">
+        <button type="button">상세검색</button>
+        </ul>
+      </div>
+      <div class="dropdown">
+        <button type="button">커뮤니티</button>
+        <ul class="dropdown-menu">
+          <li><a href="subnav/freeboard.html">자유게시판</a></li>
+          <li><a href="subnav/qna.html">질문있어요</a></li>
+          <li><a href="subnav/gameboard.html">게임별 게시판 목록</a></li>
+        </ul>
+      </div>
+      <button type="button">입문자용 Quick Guide</button>
+    </div>
+  </header>
+
+  <main class="write-container">
+    <div class="write-form">
+      <h1>글쓰기</h1>
+      <form action="#" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="title">제목</label>
+          <input type="text" id="title" name="title" required placeholder="제목을 입력하세요">
+        </div>
+        <div class="form-group">
+          <label for="content">내용</label>
+          <div class="format-toolbar">
+            <button type="button" class="format-btn" onclick="formatText('bold')" title="굵게"><b>B</b></button>
+            <button type="button" class="format-btn" onclick="formatText('italic')" title="기울임"><i>I</i></button>
+            <button type="button" class="format-btn" onclick="formatText('underline')" title="밑줄"><u>U</u></button>
+            <button type="button" class="format-btn" onclick="formatText('strikethrough')" title="취소선"><s>S</s></button>
+            <input type="color" onchange="changeTextColor(this.value)" title="글자색">
+          </div>
+          <textarea id="content" name="content" required placeholder="내용을 입력하세요"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="files">파일 첨부</label>
+          <div class="file-upload">
+            <input type="file" id="files" name="files" multiple>
+            <div class="file-list" id="fileList"></div>
+          </div>
+        </div>
+        <div class="button-group">
+          <button type="button" class="cancel-btn" onclick="location.href='freeboard.html'">취소</button>
+          <button type="submit" class="submit-btn">등록</button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <!-- 푸터 -->
+  <footer>
+    <a href="#">이용약관</a> | 
+    <a href="#">개인정보처리방침</a> | 
+    <a href="#">사이트맵</a> | 
+    <a href="#">오프라인 대회 규정</a>
+  </footer>
+
+  <script>
+    // 텍스트 서식 함수
+    function formatText(command) {
+      document.execCommand(command, false, null);
+      document.getElementById('content').focus();
+    }
+
+    // 텍스트 색상 변경 함수
+    function changeTextColor(color) {
+      document.execCommand('foreColor', false, color);
+      document.getElementById('content').focus();
+    }
+
+    // 파일 첨부 처리
+    document.getElementById('files').addEventListener('change', function(e) {
+      const fileList = document.getElementById('fileList');
+      fileList.innerHTML = '';
+      
+      Array.from(e.target.files).forEach((file, index) => {
+        const fileItem = document.createElement('div');
+        fileItem.className = 'file-item';
+        fileItem.innerHTML = `
+          <span>${file.name}</span>
+          <button type="button" onclick="removeFile(${index})">삭제</button>
+        `;
+        fileList.appendChild(fileItem);
+      });
+    });
+
+    // 파일 삭제 함수
+    function removeFile(index) {
+      const fileInput = document.getElementById('files');
+      const dt = new DataTransfer();
+      const files = fileInput.files;
+
+      for (let i = 0; i < files.length; i++) {
+        if (i !== index) {
+          dt.items.add(files[i]);
+        }
+      }
+
+      fileInput.files = dt.files;
+      const fileList = document.getElementById('fileList');
+      fileList.children[index].remove();
+    }
+  </script>
+</body>
+</html> 
