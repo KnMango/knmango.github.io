@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CardVerse - 상세 검색</title>
+  <link rel="stylesheet" href="https://knmango.github.io/archive/assets/mainstyle.css" />
+  <style>
+    .advanced-search-container {
+      display: flex;
+      gap: 2rem;
+      padding: 2rem;
+      height: calc(100vh - 200px);
+    }
+
+    .search-sidebar {
+      flex: 0 0 300px;
+      background: #f5f5f5;
+      padding: 1.5rem;
+      border-radius: 8px;
+      height: 100%;
+      overflow-y: auto;
+    }
+
+    .filter-section {
+      margin-bottom: 2rem;
+    }
+
+    .filter-section h3 {
+      margin-bottom: 1rem;
+      color: #333;
+      font-size: 1.1rem;
+    }
+
+    .filter-group {
+      margin-bottom: 1rem;
+    }
+
+    .checkbox-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .checkbox-label {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+    }
+
+    .price-range {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    .price-input {
+      width: 100px;
+      padding: 0.5rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      margin-bottom: 1rem;
+    }
+
+    .product-grid {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1.5rem;
+      height: 100%;
+      overflow-y: auto;
+      padding-right: 1rem;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.2s;
+      height: 200px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .product-image {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+    }
+
+    .product-info {
+      padding: 0.8rem;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.95);
+      border-top: 1px solid #eee;
+    }
+
+    .product-name {
+      font-weight: bold;
+      font-size: 0.9rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      margin-bottom: 0.3rem;
+    }
+
+    .product-price {
+      color: #2196f3;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+
+    .filter-button {
+      width: 100%;
+      padding: 0.8rem;
+      background: #2196f3;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 1rem;
+    }
+
+    .filter-button:hover {
+      background: #1976d2;
+    }
+
+    .result-count {
+      margin-bottom: 1rem;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <main>
+      <div class="advanced-search-container">
+        <aside class="search-sidebar">
+          <input type="text" class="search-input" placeholder="카드 이름으로 검색" id="searchInput">
+          
+          <div class="filter-section">
+            <h3>게임 종류</h3>
+            <div class="checkbox-group">
+              <label class="checkbox-label">
+                <input type="checkbox" value="포켓몬" checked> 포켓몬 카드
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" value="유희왕"> 유희왕
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" value="매직"> 매직: 더 개더링
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" value="디지몬"> 디지몬 카드
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" value="원피스"> 원피스 카드게임
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" value="뱅가드"> 뱅가드
+              </label>
+            </div>
+          </div>
+
+          <div class="filter-section">
+            <h3>가격 범위</h3>
+            <div class="price-range">
+              <input type="number" class="price-input" id="minPrice" placeholder="최소">
+              <span>~</span>
+              <input type="number" class="price-input" id="maxPrice" placeholder="최대">
+            </div>
+          </div>
+
+          <div class="filter-section">
+            <h3>상품 상태</h3>
+            <div class="checkbox-group">
+              <label class="checkbox-label">
+                <input type="checkbox" value="new" checked> 신상품
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" value="used"> 중고상품
+              </label>
+            </div>
+          </div>
+
+          <div class="filter-section">
+            <h3>구매 옵션</h3>
+            <div class="checkbox-group">
+              <label class="checkbox-label">
+                <input type="checkbox" value="immediate"> 즉시 구매
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" value="auction"> 경매
+              </label>
+            </div>
+          </div>
+
+          <button class="filter-button" id="applyFilters">필터 적용</button>
+        </aside>
+
+        <div class="product-grid">
+          <div class="result-count" style="display: none;">검색된 상품이 없습니다.</div>
+          <!-- 포켓몬 카드 -->
+          <div class="product-card">
+            <img src="https://knmango.github.io/archive/assets/doge.jpg" alt="카드 이미지" class="product-image">
+            <div class="product-info">
+              <div class="product-name">포켓몬 카드 스칼렛 & 바이올렛</div>
+              <div class="product-price">39,000원</div>
+            </div>
+          </div>
+          
+          <div class="product-card">
+            <img src="https://knmango.github.io/archive/assets/doge.jpg" alt="카드 이미지" class="product-image">
+            <div class="product-info">
+              <div class="product-name">포켓몬 카드 151</div>
+              <div class="product-price">45,000원</div>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <img src="https://knmango.github.io/archive/assets/doge.jpg" alt="카드 이미지" class="product-image">
+            <div class="product-info">
+              <div class="product-name">포켓몬 카드 파라다이스</div>
+              <div class="product-price">42,000원</div>
+            </div>
+          </div>
+
+          <!-- 유희왕 -->
+          <div class="product-card">
+            <img src="https://knmango.github.io/archive/assets/doge.jpg" alt="카드 이미지" class="product-image">
+            <div class="product-info">
+              <div class="product-name">유희왕 25th ANNIVERSARY COLLECTION</div>
+              <div class="product-price">35,000원</div>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <img src="https://knmango.github.io/archive/assets/doge.jpg" alt="카드 이미지" class="product-image">
+            <div class="product-info">
+              <div class="product-name">유희왕 레전드 오브 블루아이즈</div>
+              <div class="product-price">28,000원</div>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <img src="https://knmango.github.io/archive/assets/doge.jpg" alt="카드 이미지" class="product-image">
+            <div class="product-info">
+              <div class="product-name">유희왕 사이버스트라이크</div>
+              <div class="product-price">32,000원</div>
+            </div>
+          </div>
+
+          <!-- 매직: 더 개더링 -->
+          <div class="product-card">
+            <img src="https://knmango.github.io/archive/assets/doge.jpg" alt="카드 이미지" class="product-image">
+            <div class="product-info">
+              <div class="product-name">매직 인니스트라드: 진홍의 맹세</div>
+              <div class="product-price">48,000원</div>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <img src="https://knmango.github.io/archive/assets/doge.jpg" alt="카드 이미지" class="product-image">
+            <div class="product-info">
+              <div class="product-name">매직 커맨더 레전드</div>
+              <div class="product-price">52,000원</div>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <img src="https://knmango.github.io/archive/assets/doge.jpg" alt="카드 이미지" class="product-image">
+            <div class="product-info">
+              <div class="product-name">매직 도미나리아 유나이티드</div>
+              <div class="product-price">45,000원</div>
+            </div>
+          </div>
+
+          <!-- 디지몬 카드 -->
+          <div class="product-card">
+            <img src="https://knmango.github.io/archive/assets/doge.jpg" alt="카드 이미지" class="product-image">
+            <div class="product-info">
+              <div class="product-name">디지몬 카드 부스터 EX-03</div>
+              <div class="product-price">25,000원</div>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <img src="https://knmango.github.io/archive/assets/doge.jpg" alt="카드 이미지" class="product-image">
+            <div class="product-info">
+              <div class="product-name">디지몬 카드 스타터 데크 ST-12</div>
+              <div class="product-price">18,000원</div>
+            </div>
+          </div>
+
+          <!-- 원피스 카드게임 -->
+          <div class="product-card">
+            <img src="https://knmango.github.io/archive/assets/doge.jpg" alt="카드 이미지" class="product-image">
+            <div class="product-info">
+              <div class="product-name">원피스 카드게임 로마네스 던전</div>
+              <div class="product-price">35,000원</div>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <img src="https://knmango.github.io/archive/assets/doge.jpg" alt="카드 이미지" class="product-image">
+            <div class="product-info">
+              <div class="product-name">원피스 카드게임 확장팩 OP-05</div>
+              <div class="product-price">32,000원</div>
+            </div>
+          </div>
+
+          <!-- 뱅가드 -->
+          <div class="product-card">
+            <img src="https://knmango.github.io/archive/assets/doge.jpg" alt="카드 이미지" class="product-image">
+            <div class="product-info">
+              <div class="product-name">뱅가드 오버드레스 D-BT06</div>
+              <div class="product-price">28,000원</div>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <img src="https://knmango.github.io/archive/assets/doge.jpg" alt="카드 이미지" class="product-image">
+            <div class="product-info">
+              <div class="product-name">뱅가드 D 스타트 데크 05</div>
+              <div class="product-price">22,000원</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://knmango.github.io/archive/assets/header.js"></script>
+  <script src="https://knmango.github.io/archive/assets/footer.js"></script>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const productCards = document.querySelectorAll('.product-card');
+      const searchInput = document.getElementById('searchInput');
+      const minPriceInput = document.getElementById('minPrice');
+      const maxPriceInput = document.getElementById('maxPrice');
+      const applyFiltersBtn = document.getElementById('applyFilters');
+      const resultCountEl = document.querySelector('.result-count');
+
+      function filterProducts() {
+        let visibleCount = 0;
+        const searchTerm = searchInput.value.toLowerCase();
+        const minPrice = parseInt(minPriceInput.value) || 0;
+        const maxPrice = parseInt(maxPriceInput.value) || Infinity;
+        const selectedGames = Array.from(document.querySelectorAll('.checkbox-group input[type="checkbox"]:checked'))
+          .map(cb => cb.value);
+
+        productCards.forEach(card => {
+          const cardName = card.querySelector('.product-name').textContent.toLowerCase();
+          const priceText = card.querySelector('.product-price').textContent;
+          const price = parseInt(priceText.replace(/[^0-9]/g, ''));
+          const gameType = card.getAttribute('data-game');
+
+          const matchesSearch = cardName.includes(searchTerm);
+          const matchesPrice = price >= minPrice && price <= maxPrice;
+          const matchesGame = selectedGames.some(game => gameType.includes(game));
+
+          if (matchesSearch && matchesPrice && matchesGame) {
+            card.style.display = 'block';
+            visibleCount++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+
+        // 검색 결과가 없을 때만 메시지 표시
+        if (visibleCount === 0) {
+          resultCountEl.style.display = 'block';
+        } else {
+          resultCountEl.style.display = 'none';
+        }
+      }
+
+      // 이벤트 리스너 등록
+      searchInput.addEventListener('input', filterProducts);
+      minPriceInput.addEventListener('input', filterProducts);
+      maxPriceInput.addEventListener('input', filterProducts);
+      applyFiltersBtn.addEventListener('click', filterProducts);
+
+      document.querySelectorAll('.checkbox-group input[type="checkbox"]').forEach(checkbox => {
+        checkbox.addEventListener('change', filterProducts);
+      });
+
+      // 초기 필터링 실행
+      filterProducts();
+    });
+  </script>
+</body>
+</html>
