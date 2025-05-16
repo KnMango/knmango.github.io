@@ -9,7 +9,7 @@
     line-height: 1.6;
     background-color: #fafafa;
     color: #333;
-    padding: 0 0px;
+    padding: 0;
   }
   
   .container {
@@ -377,6 +377,7 @@
     }
     .logo {
       text-align: left;
+      padding-left: 20px;
     }
     .search-bar {
       margin: 10px 0;
