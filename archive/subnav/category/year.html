@@ -1,1 +1,292 @@
- 
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CardVerse - 출시 연도별 분류</title>
+  <link rel="stylesheet" href="https://knmango.github.io/archive/assets/mainstyle.css" />
+  <style>
+    .year-container {
+      display: flex;
+      gap: 2rem;
+      padding: 2rem;
+      height: calc(100vh - 200px);
+    }
+
+    .year-sidebar {
+      flex: 0 0 250px;
+      background: #f5f5f5;
+      padding: 1.5rem;
+      border-radius: 8px;
+      height: 100%;
+      overflow-y: auto;
+    }
+
+    .year-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .year-list li {
+      padding: 0.8rem 1rem;
+      margin-bottom: 0.5rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .year-list li:hover {
+      background-color: #e0e0e0;
+    }
+
+    .year-list li.active {
+      background-color: #2196f3;
+      color: white;
+    }
+
+    .year-badge {
+      font-size: 0.8rem;
+      padding: 2px 6px;
+      border-radius: 12px;
+      background: rgba(0, 0, 0, 0.1);
+    }
+
+    .product-grid {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1.5rem;
+      height: 100%;
+      overflow-y: auto;
+      padding-right: 1rem;
+    }
+
+    .product-grid::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .product-grid::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 4px;
+    }
+
+    .product-grid::-webkit-scrollbar-thumb {
+      background: #888;
+      border-radius: 4px;
+    }
+
+    .product-grid::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.2s;
+      height: 200px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .product-image {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+    }
+
+    .product-info {
+      padding: 0.8rem;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.95);
+      border-top: 1px solid #eee;
+    }
+
+    .product-name {
+      font-weight: bold;
+      font-size: 0.9rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      margin-bottom: 0.3rem;
+    }
+
+    .product-price {
+      color: #2196f3;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+
+    .year-tag {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      padding: 4px 8px;
+      border-radius: 4px;
+      color: white;
+      font-size: 0.8rem;
+      font-weight: bold;
+      background: linear-gradient(45deg, #1a237e, #0d47a1);
+    }
+
+    .vintage {
+      background: linear-gradient(45deg, #4a148c, #311b92);
+    }
+
+    .classic {
+      background: linear-gradient(45deg, #b71c1c, #c62828);
+    }
+
+    .modern {
+      background: linear-gradient(45deg, #1a237e, #0d47a1);
+    }
+
+    .recent {
+      background: linear-gradient(45deg, #004d40, #00695c);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <main>
+      <div class="year-container">
+        <aside class="year-sidebar">
+          <h2>출시 연도별 분류</h2>
+          <ul class="year-list">
+            <li class="active">2020년대 <span class="year-badge">최신</span></li>
+            <li>2010년대</li>
+            <li>2000년대</li>
+            <li>1990년대</li>
+            <li>1980년대 <span class="year-badge">빈티지</span></li>
+          </ul>
+        </aside>
+
+        <div class="product-grid">
+          <!-- 2020년대 카드 -->
+          <div class="product-card" data-year="2020년대">
+            <img src="https://via.placeholder.com/200" alt="카드 이미지" class="product-image">
+            <div class="year-tag recent">2023</div>
+            <div class="product-info">
+              <div class="product-name">포켓몬 카드 스칼렛 & 바이올렛</div>
+              <div class="product-price">39,000원</div>
+            </div>
+          </div>
+
+          <div class="product-card" data-year="2020년대">
+            <img src="https://via.placeholder.com/200" alt="카드 이미지" class="product-image">
+            <div class="year-tag recent">2022</div>
+            <div class="product-info">
+              <div class="product-name">원피스 카드게임 로마네스크</div>
+              <div class="product-price">35,000원</div>
+            </div>
+          </div>
+
+          <!-- 2010년대 카드 -->
+          <div class="product-card" data-year="2010년대">
+            <img src="https://via.placeholder.com/200" alt="카드 이미지" class="product-image">
+            <div class="year-tag modern">2019</div>
+            <div class="product-info">
+              <div class="product-name">유희왕 20th ANNIVERSARY</div>
+              <div class="product-price">45,000원</div>
+            </div>
+          </div>
+
+          <div class="product-card" data-year="2010년대">
+            <img src="https://via.placeholder.com/200" alt="카드 이미지" class="product-image">
+            <div class="year-tag modern">2015</div>
+            <div class="product-info">
+              <div class="product-name">매직 오리진</div>
+              <div class="product-price">120,000원</div>
+            </div>
+          </div>
+
+          <!-- 2000년대 카드 -->
+          <div class="product-card" data-year="2000년대">
+            <img src="https://via.placeholder.com/200" alt="카드 이미지" class="product-image">
+            <div class="year-tag classic">2005</div>
+            <div class="product-info">
+              <div class="product-name">유희왕 사이버드래곤</div>
+              <div class="product-price">280,000원</div>
+            </div>
+          </div>
+
+          <!-- 1990년대 카드 -->
+          <div class="product-card" data-year="1990년대">
+            <img src="https://via.placeholder.com/200" alt="카드 이미지" class="product-image">
+            <div class="year-tag vintage">1999</div>
+            <div class="product-info">
+              <div class="product-name">포켓몬 베이스 세트</div>
+              <div class="product-price">1,500,000원</div>
+            </div>
+          </div>
+
+          <!-- 1980년대 카드 -->
+          <div class="product-card" data-year="1980년대">
+            <img src="https://via.placeholder.com/200" alt="카드 이미지" class="product-image">
+            <div class="year-tag vintage">1983</div>
+            <div class="product-info">
+              <div class="product-name">매직 알파</div>
+              <div class="product-price">15,000,000원</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://knmango.github.io/archive/assets/header.js"></script>
+  <script src="https://knmango.github.io/archive/assets/footer.js"></script>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const yearList = document.querySelectorAll('.year-list li');
+      const productCards = document.querySelectorAll('.product-card');
+      
+      // 초기 상태 설정 (2020년대가 기본 선택)
+      filterProducts('2020년대');
+
+      // 연도 목록 클릭 이벤트 처리
+      yearList.forEach(item => {
+        item.addEventListener('click', function() {
+          // 활성화된 항목 스타일 변경
+          yearList.forEach(li => li.classList.remove('active'));
+          this.classList.add('active');
+          
+          // 상품 필터링
+          const selectedYear = this.textContent.split(' ')[0]; // "최신" 등의 뱃지 텍스트 제거
+          filterProducts(selectedYear);
+        });
+      });
+
+      // 상품 필터링 함수
+      function filterProducts(year) {
+        productCards.forEach(card => {
+          if (card.getAttribute('data-year') === year) {
+            card.style.display = 'block';
+            // 부드러운 페이드인 효과
+            card.style.opacity = '0';
+            setTimeout(() => {
+              card.style.opacity = '1';
+            }, 10);
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html> 

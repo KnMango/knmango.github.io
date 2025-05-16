@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CardVerse - 테마별 분류</title>
+  <title>CardVerse - 지역별 분류</title>
   <link rel="stylesheet" href="https://knmango.github.io/archive/assets/mainstyle.css" />
   <style>
-    .theme-container {
+    .region-container {
       display: flex;
       gap: 2rem;
       padding: 2rem;
       height: calc(100vh - 200px);
     }
 
-    .theme-sidebar {
+    .region-sidebar {
       flex: 0 0 250px;
       background: #f5f5f5;
       padding: 1.5rem;
@@ -22,13 +22,13 @@
       overflow-y: auto;
     }
 
-    .theme-list {
+    .region-list {
       list-style: none;
       padding: 0;
       margin: 0;
     }
 
-    .theme-list li {
+    .region-list li {
       padding: 0.8rem 1rem;
       margin-bottom: 0.5rem;
       border-radius: 6px;
@@ -36,19 +36,23 @@
       transition: background-color 0.2s;
       display: flex;
       align-items: center;
+      justify-content: space-between;
     }
 
-    .theme-list li:hover {
+    .region-list li:hover {
       background-color: #e0e0e0;
     }
 
-    .theme-list li.active {
+    .region-list li.active {
       background-color: #2196f3;
       color: white;
     }
 
-    .theme-icon {
-      display: none;
+    .region-badge {
+      font-size: 0.8rem;
+      padding: 2px 6px;
+      border-radius: 12px;
+      background: rgba(0, 0, 0, 0.1);
     }
 
     .product-grid {
@@ -126,7 +130,7 @@
       font-size: 1rem;
     }
 
-    .theme-badge {
+    .region-tag {
       position: absolute;
       top: 10px;
       right: 10px;
@@ -137,123 +141,124 @@
       font-weight: bold;
     }
 
-    .fantasy {
-      background: linear-gradient(45deg, #7b1fa2, #9c27b0);
+    .japan {
+      background: linear-gradient(45deg, #d32f2f, #f44336);
     }
 
-    .anime {
-      background: linear-gradient(45deg, #f50057, #ff4081);
+    .korea {
+      background: linear-gradient(45deg, #1976d2, #2196f3);
     }
 
-    .sports {
-      background: linear-gradient(45deg, #2196f3, #03a9f4);
+    .usa {
+      background: linear-gradient(45deg, #0d47a1, #1565c0);
     }
 
-    .scifi {
-      background: linear-gradient(45deg, #00bcd4, #009688);
+    .europe {
+      background: linear-gradient(45deg, #ffc107, #ffeb3b);
+      color: #333;
     }
 
-    .horror {
-      background: linear-gradient(45deg, #212121, #424242);
+    .china {
+      background: linear-gradient(45deg, #d50000, #ff1744);
     }
 
-    .nature {
-      background: linear-gradient(45deg, #4caf50, #8bc34a);
+    .global {
+      background: linear-gradient(45deg, #4a148c, #6a1b9a);
     }
   </style>
 </head>
 <body>
   <div class="container">
     <main>
-      <div class="theme-container">
-        <aside class="theme-sidebar">
-          <h2>테마별 분류</h2>
-          <ul class="theme-list">
-            <li class="active">판타지</li>
-            <li>애니메이션</li>
-            <li>스포츠</li>
-            <li>SF</li>
-            <li>공포</li>
-            <li>자연</li>
+      <div class="region-container">
+        <aside class="region-sidebar">
+          <h2>지역별 분류</h2>
+          <ul class="region-list">
+            <li class="active">일본 <span class="region-badge">본토</span></li>
+            <li>한국</li>
+            <li>미국</li>
+            <li>유럽</li>
+            <li>중국</li>
+            <li>글로벌 <span class="region-badge">통합</span></li>
           </ul>
         </aside>
 
         <div class="product-grid">
-          <!-- 판타지 테마 카드 -->
-          <div class="product-card" data-theme="판타지">
+          <!-- 일본 지역 카드 -->
+          <div class="product-card" data-region="일본">
             <img src="https://via.placeholder.com/200" alt="카드 이미지" class="product-image">
-            <div class="theme-badge fantasy">판타지</div>
+            <div class="region-tag japan">JPN</div>
             <div class="product-info">
-              <div class="product-name">드래곤의 숨결</div>
-              <div class="product-price">45,000원</div>
+              <div class="product-name">포켓몬 25주년 일본 한정판</div>
+              <div class="product-price">89,000원</div>
             </div>
           </div>
 
-          <div class="product-card" data-theme="판타지">
+          <div class="product-card" data-region="일본">
             <img src="https://via.placeholder.com/200" alt="카드 이미지" class="product-image">
-            <div class="theme-badge fantasy">판타지</div>
+            <div class="region-tag japan">JPN</div>
             <div class="product-info">
-              <div class="product-name">마법사의 탑</div>
-              <div class="product-price">38,000원</div>
-            </div>
-          </div>
-
-          <!-- 애니메이션 테마 카드 -->
-          <div class="product-card" data-theme="애니메이션">
-            <img src="https://via.placeholder.com/200" alt="카드 이미지" class="product-image">
-            <div class="theme-badge anime">애니</div>
-            <div class="product-info">
-              <div class="product-name">원피스 밀크스트로우 세트</div>
+              <div class="product-name">유희왕 프리미엄 팩 21</div>
               <div class="product-price">55,000원</div>
             </div>
           </div>
 
-          <div class="product-card" data-theme="애니메이션">
+          <!-- 한국 지역 카드 -->
+          <div class="product-card" data-region="한국">
             <img src="https://via.placeholder.com/200" alt="카드 이미지" class="product-image">
-            <div class="theme-badge anime">애니</div>
+            <div class="region-tag korea">KOR</div>
             <div class="product-info">
-              <div class="product-name">나루토 닌자의 길</div>
-              <div class="product-price">42,000원</div>
+              <div class="product-name">포켓몬 코리안리그 스페셜</div>
+              <div class="product-price">45,000원</div>
             </div>
           </div>
 
-          <!-- 스포츠 테마 카드 -->
-          <div class="product-card" data-theme="스포츠">
+          <div class="product-card" data-region="한국">
             <img src="https://via.placeholder.com/200" alt="카드 이미지" class="product-image">
-            <div class="theme-badge sports">스포츠</div>
+            <div class="region-tag korea">KOR</div>
             <div class="product-info">
-              <div class="product-name">슬램덩크 컬렉션</div>
-              <div class="product-price">65,000원</div>
-            </div>
-          </div>
-
-          <!-- SF 테마 카드 -->
-          <div class="product-card" data-theme="SF">
-            <img src="https://via.placeholder.com/200" alt="카드 이미지" class="product-image">
-            <div class="theme-badge scifi">SF</div>
-            <div class="product-info">
-              <div class="product-name">사이버펑크 2077</div>
-              <div class="product-price">48,000원</div>
-            </div>
-          </div>
-
-          <!-- 공포 테마 카드 -->
-          <div class="product-card" data-theme="공포">
-            <img src="https://via.placeholder.com/200" alt="카드 이미지" class="product-image">
-            <div class="theme-badge horror">공포</div>
-            <div class="product-info">
-              <div class="product-name">저주받은 인형</div>
+              <div class="product-name">매직 더 개더링 한글판</div>
               <div class="product-price">35,000원</div>
             </div>
           </div>
 
-          <!-- 자연 테마 카드 -->
-          <div class="product-card" data-theme="자연">
+          <!-- 미국 지역 카드 -->
+          <div class="product-card" data-region="미국">
             <img src="https://via.placeholder.com/200" alt="카드 이미지" class="product-image">
-            <div class="theme-badge nature">자연</div>
+            <div class="region-tag usa">USA</div>
             <div class="product-info">
-              <div class="product-name">숲의 정령</div>
-              <div class="product-price">32,000원</div>
+              <div class="product-name">포켓몬 TCG 라이브</div>
+              <div class="product-price">42,000원</div>
+            </div>
+          </div>
+
+          <!-- 유럽 지역 카드 -->
+          <div class="product-card" data-region="유럽">
+            <img src="https://via.placeholder.com/200" alt="카드 이미지" class="product-image">
+            <div class="region-tag europe">EUR</div>
+            <div class="product-info">
+              <div class="product-name">매직 유럽 챔피언십</div>
+              <div class="product-price">68,000원</div>
+            </div>
+          </div>
+
+          <!-- 중국 지역 카드 -->
+          <div class="product-card" data-region="중국">
+            <img src="https://via.placeholder.com/200" alt="카드 이미지" class="product-image">
+            <div class="region-tag china">CHN</div>
+            <div class="product-info">
+              <div class="product-name">삼국전기 스페셜 에디션</div>
+              <div class="product-price">52,000원</div>
+            </div>
+          </div>
+
+          <!-- 글로벌 지역 카드 -->
+          <div class="product-card" data-region="글로벌">
+            <img src="https://via.placeholder.com/200" alt="카드 이미지" class="product-image">
+            <div class="region-tag global">GBL</div>
+            <div class="product-info">
+              <div class="product-name">포켓몬 월드 챔피언십</div>
+              <div class="product-price">75,000원</div>
             </div>
           </div>
         </div>
@@ -266,29 +271,29 @@
   
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      const themeList = document.querySelectorAll('.theme-list li');
+      const regionList = document.querySelectorAll('.region-list li');
       const productCards = document.querySelectorAll('.product-card');
       
-      // 초기 상태 설정 (판타지가 기본 선택)
-      filterProducts('판타지');
+      // 초기 상태 설정 (일본이 기본 선택)
+      filterProducts('일본');
 
-      // 테마 목록 클릭 이벤트 처리
-      themeList.forEach(item => {
+      // 지역 목록 클릭 이벤트 처리
+      regionList.forEach(item => {
         item.addEventListener('click', function() {
           // 활성화된 항목 스타일 변경
-          themeList.forEach(li => li.classList.remove('active'));
+          regionList.forEach(li => li.classList.remove('active'));
           this.classList.add('active');
           
           // 상품 필터링
-          const selectedTheme = this.textContent.trim();
-          filterProducts(selectedTheme);
+          const selectedRegion = this.textContent.split(' ')[0]; // "본토" 등의 뱃지 텍스트 제거
+          filterProducts(selectedRegion);
         });
       });
 
       // 상품 필터링 함수
-      function filterProducts(theme) {
+      function filterProducts(region) {
         productCards.forEach(card => {
-          if (card.getAttribute('data-theme') === theme) {
+          if (card.getAttribute('data-region') === region) {
             card.style.display = 'block';
             // 부드러운 페이드인 효과
             card.style.opacity = '0';
@@ -303,4 +308,4 @@
     });
   </script>
 </body>
-</html> 
+</html>

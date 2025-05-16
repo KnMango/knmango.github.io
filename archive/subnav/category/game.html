@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CardVerse - 게임별 분류</title>
+  <link rel="stylesheet" href="https://knmango.github.io/archive/assets/mainstyle.css" />
+  <style>
+    .game-container {
+      display: flex;
+      gap: 2rem;
+      padding: 2rem;
+      height: calc(100vh - 200px); /* 헤더/푸터 공간 고려 */
+    }
+
+    .game-sidebar {
+      flex: 0 0 250px;
+      background: #f5f5f5;
+      padding: 1.5rem;
+      border-radius: 8px;
+      height: 100%;
+      overflow-y: auto;
+    }
+
+    .game-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .game-list li {
+      padding: 0.8rem 1rem;
+      margin-bottom: 0.5rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .game-list li:hover {
+      background-color: #e0e0e0;
+    }
+
+    .game-list li.active {
+      background-color: #2196f3;
+      color: white;
+    }
+
+    .product-grid {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1.5rem;
+      height: 100%;
+      overflow-y: auto;
+      padding-right: 1rem; /* 스크롤바 공간 확보 */
+    }
+
+    /* 스크롤바 스타일링 */
+    .product-grid::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .product-grid::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 4px;
+    }
+
+    .product-grid::-webkit-scrollbar-thumb {
+      background: #888;
+      border-radius: 4px;
+    }
+
+    .product-grid::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.2s;
+      height: 200px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .product-image {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+    }
+
+    .product-info {
+      padding: 0.8rem;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.95);
+      border-top: 1px solid #eee;
+    }
+
+    .product-name {
+      font-weight: bold;
+      font-size: 0.9rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      margin-bottom: 0.3rem;
+    }
+
+    .product-price {
+      color: #2196f3;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <main>
+      <div class="game-container">
+        <aside class="game-sidebar">
+          <h2>게임별 분류</h2>
+          <ul class="game-list">
+            <li class="active">포켓몬 카드</li>
+            <li>유희왕</li>
+            <li>매직: 더 개더링</li>
+            <li>디지몬 카드</li>
+            <li>원피스 카드게임</li>
+            <li>뱅가드</li>
+          </ul>
+        </aside>
+
+        <div class="product-grid">
+          <!-- 포켓몬 카드 -->
+          <div class="product-card">
+            <img src="https://via.placeholder.com/200" alt="카드 이미지" class="product-image">
+            <div class="product-info">
+              <div class="product-name">포켓몬 카드 스칼렛 & 바이올렛</div>
+              <div class="product-price">39,000원</div>
+            </div>
+          </div>
+          
+          <div class="product-card">
+            <img src="https://via.placeholder.com/200" alt="카드 이미지" class="product-image">
+            <div class="product-info">
+              <div class="product-name">포켓몬 카드 151</div>
+              <div class="product-price">45,000원</div>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <img src="https://via.placeholder.com/200" alt="카드 이미지" class="product-image">
+            <div class="product-info">
+              <div class="product-name">포켓몬 카드 파라다이스</div>
+              <div class="product-price">42,000원</div>
+            </div>
+          </div>
+
+          <!-- 유희왕 -->
+          <div class="product-card">
+            <img src="https://via.placeholder.com/200" alt="카드 이미지" class="product-image">
+            <div class="product-info">
+              <div class="product-name">유희왕 25th ANNIVERSARY COLLECTION</div>
+              <div class="product-price">35,000원</div>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <img src="https://via.placeholder.com/200" alt="카드 이미지" class="product-image">
+            <div class="product-info">
+              <div class="product-name">유희왕 레전드 오브 블루아이즈</div>
+              <div class="product-price">28,000원</div>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <img src="https://via.placeholder.com/200" alt="카드 이미지" class="product-image">
+            <div class="product-info">
+              <div class="product-name">유희왕 사이버스트라이크</div>
+              <div class="product-price">32,000원</div>
+            </div>
+          </div>
+
+          <!-- 매직: 더 개더링 -->
+          <div class="product-card">
+            <img src="https://via.placeholder.com/200" alt="카드 이미지" class="product-image">
+            <div class="product-info">
+              <div class="product-name">매직 인니스트라드: 진홍의 맹세</div>
+              <div class="product-price">48,000원</div>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <img src="https://via.placeholder.com/200" alt="카드 이미지" class="product-image">
+            <div class="product-info">
+              <div class="product-name">매직 커맨더 레전드</div>
+              <div class="product-price">52,000원</div>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <img src="https://via.placeholder.com/200" alt="카드 이미지" class="product-image">
+            <div class="product-info">
+              <div class="product-name">매직 도미나리아 유나이티드</div>
+              <div class="product-price">45,000원</div>
+            </div>
+          </div>
+
+          <!-- 디지몬 카드 -->
+          <div class="product-card">
+            <img src="https://via.placeholder.com/200" alt="카드 이미지" class="product-image">
+            <div class="product-info">
+              <div class="product-name">디지몬 카드 부스터 EX-03</div>
+              <div class="product-price">25,000원</div>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <img src="https://via.placeholder.com/200" alt="카드 이미지" class="product-image">
+            <div class="product-info">
+              <div class="product-name">디지몬 카드 스타터 데크 ST-12</div>
+              <div class="product-price">18,000원</div>
+            </div>
+          </div>
+
+          <!-- 원피스 카드게임 -->
+          <div class="product-card">
+            <img src="https://via.placeholder.com/200" alt="카드 이미지" class="product-image">
+            <div class="product-info">
+              <div class="product-name">원피스 카드게임 로마네스 던전</div>
+              <div class="product-price">35,000원</div>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <img src="https://via.placeholder.com/200" alt="카드 이미지" class="product-image">
+            <div class="product-info">
+              <div class="product-name">원피스 카드게임 확장팩 OP-05</div>
+              <div class="product-price">32,000원</div>
+            </div>
+          </div>
+
+          <!-- 뱅가드 -->
+          <div class="product-card">
+            <img src="https://via.placeholder.com/200" alt="카드 이미지" class="product-image">
+            <div class="product-info">
+              <div class="product-name">뱅가드 오버드레스 D-BT06</div>
+              <div class="product-price">28,000원</div>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <img src="https://via.placeholder.com/200" alt="카드 이미지" class="product-image">
+            <div class="product-info">
+              <div class="product-name">뱅가드 D 스타트 데크 05</div>
+              <div class="product-price">22,000원</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://knmango.github.io/archive/assets/header.js"></script>
+  <script src="https://knmango.github.io/archive/assets/footer.js"></script>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const gameList = document.querySelectorAll('.game-list li');
+      const productCards = document.querySelectorAll('.product-card');
+      
+      // 각 상품에 데이터 속성 추가
+      productCards.forEach(card => {
+        const cardTitle = card.querySelector('.product-name').textContent.toLowerCase();
+        if (cardTitle.includes('포켓몬')) {
+          card.setAttribute('data-game', '포켓몬 카드');
+        } else if (cardTitle.includes('유희왕')) {
+          card.setAttribute('data-game', '유희왕');
+        } else if (cardTitle.includes('매직')) {
+          card.setAttribute('data-game', '매직: 더 개더링');
+        } else if (cardTitle.includes('디지몬')) {
+          card.setAttribute('data-game', '디지몬 카드');
+        } else if (cardTitle.includes('원피스')) {
+          card.setAttribute('data-game', '원피스 카드게임');
+        } else if (cardTitle.includes('뱅가드')) {
+          card.setAttribute('data-game', '뱅가드');
+        }
+      });
+
+      // 초기 상태 설정 (포켓몬 카드가 기본 선택)
+      filterProducts('포켓몬 카드');
+
+      // 게임 목록 클릭 이벤트 처리
+      gameList.forEach(item => {
+        item.addEventListener('click', function() {
+          // 활성화된 항목 스타일 변경
+          gameList.forEach(li => li.classList.remove('active'));
+          this.classList.add('active');
+          
+          // 상품 필터링
+          const selectedGame = this.textContent;
+          filterProducts(selectedGame);
+        });
+      });
+
+      // 상품 필터링 함수
+      function filterProducts(gameName) {
+        productCards.forEach(card => {
+          if (card.getAttribute('data-game') === gameName) {
+            card.style.display = 'block';
+            // 부드러운 페이드인 효과
+            card.style.opacity = '0';
+            setTimeout(() => {
+              card.style.opacity = '1';
+            }, 10);
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>
