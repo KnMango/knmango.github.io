@@ -22,8 +22,8 @@
     background-color: #222;
     border-bottom: 1px solid #ccc;
     width: 100vw;
-    margin-left: calc(-20px - 50vw + 50%);
-    margin-right: calc(-20px - 50vw + 50%);
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
   }
   .top-nav {
     display: flex;
@@ -94,7 +94,9 @@
     padding: 10px 0;
     background-color: #fff;
     border-bottom: 1px solid #ddd;
-    width: 100%;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
   }
   .sub-nav .dropdown {
     position: relative;
@@ -353,8 +355,8 @@
   /* footer */
   footer {
     width: 100vw;
-    margin-left: calc(-20px - 50vw + 50%);
-    margin-right: calc(-20px - 50vw + 50%);
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
     padding: 20px;
     background-color: #222;
     text-align: center;
