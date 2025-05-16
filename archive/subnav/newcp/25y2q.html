@@ -3,57 +3,152 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CardVerse</title>
+  <title>CardVerse - 2025년 1분기 신규 카드팩</title>
   <link rel="stylesheet" href="https://knmango.github.io/archive/assets/mainstyle.css" />
-  <link rel="stylesheet" href="https://knmango.github.io/archive/assets/newcard.css" />
+  <style>
+    .product-section {
+      padding: 2rem;
+      height: calc(100vh - 200px);
+    }
+
+    h2 {
+      margin-bottom: 2rem;
+      color: #333;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1.5rem;
+      height: calc(100% - 4rem);
+      overflow-y: auto;
+      padding-right: 1rem;
+    }
+
+    .product-grid::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .product-grid::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 4px;
+    }
+
+    .product-grid::-webkit-scrollbar-thumb {
+      background: #888;
+      border-radius: 4px;
+    }
+
+    .product-grid::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.2s;
+      height: 200px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+    }
+
+    .product-info {
+      padding: 0.8rem;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.95);
+      border-top: 1px solid #eee;
+    }
+
+    .product-name {
+      font-weight: bold;
+      font-size: 0.9rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      margin-bottom: 0.3rem;
+    }
+
+    .product-price {
+      color: #2196f3;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+  </style>
 </head>
 <body>
-
   <div class="container">
-  <main>
-    <div class="product-section">
-      <h2>2025년 2분기 신규 카드팩</h2>
-      <div class="product-grid">
-        <div class="product-card">
-          <img src="https://knmango.github.io/archive/assets/doge.jpg" alt="카드팩 1">
-          <h3>카드팩 1</h3>
-          <p class="price">₩15,000</p>
-          <button class="buy-button">구매하기</button>
-        </div>
-        <div class="product-card">
-          <img src="https://knmango.github.io/archive/assets/doge.jpg" alt="카드팩 2">
-          <h3>카드팩 2</h3>
-          <p class="price">₩15,000</p>
-          <button class="buy-button">구매하기</button>
-        </div>
-        <div class="product-card">
-          <img src="https://knmango.github.io/archive/assets/doge.jpg" alt="카드팩 3">
-          <h3>카드팩 3</h3>
-          <p class="price">₩15,000</p>
-          <button class="buy-button">구매하기</button>
-        </div>
-        <div class="product-card">
-          <img src="https://knmango.github.io/archive/assets/doge.jpg" alt="카드팩 4">
-          <h3>카드팩 4</h3>
-          <p class="price">₩15,000</p>
-          <button class="buy-button">구매하기</button>
-        </div>
-        <div class="product-card">
-          <img src="https://knmango.github.io/archive/assets/doge.jpg" alt="카드팩 5">
-          <h3>카드팩 5</h3>
-          <p class="price">₩15,000</p>
-          <button class="buy-button">구매하기</button>
-        </div>
-        <div class="product-card">
-          <img src="https://knmango.github.io/archive/assets/doge.jpg" alt="카드팩 6">
-          <h3>카드팩 6</h3>
-          <p class="price">₩15,000</p>
-          <button class="buy-button">구매하기</button>
+    <main>
+      <div class="product-section">
+        <h2>2025년 1분기 신규 카드팩</h2>
+        <div class="product-grid">
+          <div class="product-card">
+            <img src="https://knmango.github.io/archive/assets/doge.jpg" alt="카드팩 1">
+            <div class="product-info">
+              <div class="product-name">카드팩 1</div>
+              <div class="product-price">₩15,000</div>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <img src="https://knmango.github.io/archive/assets/doge.jpg" alt="카드팩 2">
+            <div class="product-info">
+              <div class="product-name">카드팩 2</div>
+              <div class="product-price">₩15,000</div>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <img src="https://knmango.github.io/archive/assets/doge.jpg" alt="카드팩 3">
+            <div class="product-info">
+              <div class="product-name">카드팩 3</div>
+              <div class="product-price">₩15,000</div>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <img src="https://knmango.github.io/archive/assets/doge.jpg" alt="카드팩 4">
+            <div class="product-info">
+              <div class="product-name">카드팩 4</div>
+              <div class="product-price">₩15,000</div>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <img src="https://knmango.github.io/archive/assets/doge.jpg" alt="카드팩 5">
+            <div class="product-info">
+              <div class="product-name">카드팩 5</div>
+              <div class="product-price">₩15,000</div>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <img src="https://knmango.github.io/archive/assets/doge.jpg" alt="카드팩 6">
+            <div class="product-info">
+              <div class="product-name">카드팩 6</div>
+              <div class="product-price">₩15,000</div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </main>
+    </main>
   </div>
+
   <script src="https://knmango.github.io/archive/assets/header.js"></script>
   <script src="https://knmango.github.io/archive/assets/footer.js"></script>
 </body>
