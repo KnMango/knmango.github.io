@@ -376,8 +376,8 @@
       align-items: stretch;
     }
     .logo {
+      margin-left: 10px;
       text-align: left;
-      padding-left: 20px;
     }
     .search-bar {
       margin: 10px 0;
