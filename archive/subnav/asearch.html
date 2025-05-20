@@ -78,6 +78,7 @@
       height: 100%;
       overflow-y: auto;
       padding-right: 1rem;
+      align-content: start;
     }
 
     .product-card {
@@ -90,6 +91,7 @@
       display: flex;
       flex-direction: column;
       position: relative;
+      margin-bottom: 0;
     }
 
     .product-card:hover {
@@ -189,30 +191,6 @@
             </div>
           </div>
 
-          <div class="filter-section">
-            <h3>상품 상태</h3>
-            <div class="checkbox-group">
-              <label class="checkbox-label">
-                <input type="checkbox" value="new" checked> 신상품
-              </label>
-              <label class="checkbox-label">
-                <input type="checkbox" value="used"> 중고상품
-              </label>
-            </div>
-          </div>
-<!--
-          <div class="filter-section">
-            <h3>구매 옵션</h3>
-            <div class="checkbox-group">
-              <label class="checkbox-label">
-                <input type="checkbox" value="immediate"> 즉시 구매
-              </label>
-              <label class="checkbox-label">
-                <input type="checkbox" value="auction"> 경매
-              </label>
-            </div>
-          </div>
-        -->
           <button class="filter-button" id="applyFilters">필터 적용</button>
         </aside>
 
@@ -394,17 +372,10 @@
       }
 
       // 이벤트 리스너 등록
-      searchInput.addEventListener('input', filterProducts);
-      minPriceInput.addEventListener('input', filterProducts);
-      maxPriceInput.addEventListener('input', filterProducts);
       applyFiltersBtn.addEventListener('click', filterProducts);
 
-      document.querySelectorAll('.checkbox-group input[type="checkbox"]').forEach(checkbox => {
-        checkbox.addEventListener('change', filterProducts);
-      });
-
-      // 초기 필터링 실행
-      filterProducts();
+      // 초기 필터링 제거
+      // filterProducts();
     });
   </script>
 </body>

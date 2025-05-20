@@ -1,1 +1,697 @@
- 
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CardVerse - 상세 검색</title>
+  <link rel="stylesheet" href="https://knmango.github.io/archive/assets/mainstyle.css" />
+  <style>
+    .advanced-search-container {
+      display: flex;
+      gap: 2rem;
+      padding: 2rem;
+      height: calc(100vh - 200px);
+    }
+
+    .search-sidebar {
+      flex: 0 0 300px;
+      background: #f5f5f5;
+      padding: 1.5rem;
+      border-radius: 8px;
+      height: 100%;
+      overflow-y: auto;
+    }
+
+    .filter-section {
+      margin-bottom: 2rem;
+    }
+
+    .filter-section h3 {
+      margin-bottom: 1rem;
+      color: #333;
+      font-size: 1.1rem;
+    }
+
+    .filter-group {
+      margin-bottom: 1rem;
+    }
+
+    .checkbox-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .checkbox-label {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+    }
+
+    .price-range {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    .price-input {
+      width: 100px;
+      padding: 0.5rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      margin-bottom: 1rem;
+    }
+
+    .product-grid {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1.5rem;
+      height: 100%;
+      overflow-y: auto;
+      padding-right: 1rem;
+      align-content: start;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.2s;
+      height: 200px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      margin-bottom: 0;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .product-image {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+    }
+
+    .product-info {
+      padding: 0.8rem;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.95);
+      border-top: 1px solid #eee;
+    }
+
+    .product-name {
+      font-weight: bold;
+      font-size: 0.9rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      margin-bottom: 0.3rem;
+    }
+
+    .product-price {
+      color: #2196f3;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+
+    .filter-button {
+      width: 100%;
+      padding: 0.8rem;
+      background: #2196f3;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 1rem;
+    }
+
+    .filter-button:hover {
+      background: #1976d2;
+    }
+
+    .result-count {
+      margin-bottom: 1rem;
+      color: #666;
+    }
+
+    .price-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .price-modal-content {
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      width: 90%;
+      max-width: 500px;
+    }
+
+    .price-modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .price-modal-header h2 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+
+    .price-period {
+      color: #666;
+      font-size: 0.9rem;
+      margin-top: 0.3rem;
+    }
+
+    .close-modal {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #666;
+    }
+
+    .price-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+
+    .price-table th,
+    .price-table td {
+      padding: 0.8rem;
+      text-align: left;
+      border-bottom: 1px solid #eee;
+    }
+
+    .price-table th {
+      background: #f5f5f5;
+      font-weight: bold;
+    }
+
+    .price-change {
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+    }
+
+    .price-up {
+      color: #e53935;
+    }
+
+    .price-down {
+      color: #43a047;
+    }
+
+    .price-change-positive {
+      color: #e53935;
+    }
+
+    .price-change-negative {
+      color: #2196f3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <main>
+      <div class="advanced-search-container">
+        <aside class="search-sidebar">
+          <input type="text" class="search-input" placeholder="카드 이름으로 검색" id="searchInput">
+          
+          <div class="filter-section">
+            <h3>게임 종류</h3>
+            <div class="checkbox-group">
+              <label class="checkbox-label">
+                <input type="checkbox" value="포켓몬" checked> 포켓몬 카드
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" value="유희왕"> 유희왕
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" value="매직"> 매직: 더 개더링
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" value="디지몬"> 디지몬 카드
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" value="원피스"> 원피스 카드게임
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" value="뱅가드"> 뱅가드
+              </label>
+            </div>
+          </div>
+
+          <div class="filter-section">
+            <h3>가격 범위</h3>
+            <div class="price-range">
+              <input type="number" class="price-input" id="minPrice" placeholder="최소">
+              <span>~</span>
+              <input type="number" class="price-input" id="maxPrice" placeholder="최대">
+            </div>
+          </div>
+
+          <button class="filter-button" id="applyFilters">필터 적용</button>
+        </aside>
+
+        <div class="product-grid">
+          <div class="result-count" style="display: none;">검색된 상품이 없습니다.</div>
+          <!-- 포켓몬 카드 -->
+          <div class="product-card" data-game="포켓몬">
+            <img src="https://knmango.github.io/archive/assets/doge.jpg" alt="카드 이미지" class="product-image">
+            <div class="product-info">
+              <div class="product-name">포켓몬 카드 스칼렛 & 바이올렛</div>
+              <div class="product-price">39,000원</div>
+            </div>
+          </div>
+          
+          <div class="product-card" data-game="포켓몬">
+            <img src="https://knmango.github.io/archive/assets/doge.jpg" alt="카드 이미지" class="product-image">
+            <div class="product-info">
+              <div class="product-name">포켓몬 카드 151</div>
+              <div class="product-price">45,000원</div>
+            </div>
+          </div>
+
+          <div class="product-card" data-game="포켓몬">
+            <img src="https://knmango.github.io/archive/assets/doge.jpg" alt="카드 이미지" class="product-image">
+            <div class="product-info">
+              <div class="product-name">포켓몬 카드 파라다이스</div>
+              <div class="product-price">42,000원</div>
+            </div>
+          </div>
+
+          <!-- 유희왕 -->
+          <div class="product-card" data-game="유희왕">
+            <img src="https://knmango.github.io/archive/assets/doge.jpg" alt="카드 이미지" class="product-image">
+            <div class="product-info">
+              <div class="product-name">유희왕 25th ANNIVERSARY COLLECTION</div>
+              <div class="product-price">35,000원</div>
+            </div>
+          </div>
+
+          <div class="product-card" data-game="유희왕">
+            <img src="https://knmango.github.io/archive/assets/doge.jpg" alt="카드 이미지" class="product-image">
+            <div class="product-info">
+              <div class="product-name">유희왕 레전드 오브 블루아이즈</div>
+              <div class="product-price">28,000원</div>
+            </div>
+          </div>
+
+          <div class="product-card" data-game="유희왕">
+            <img src="https://knmango.github.io/archive/assets/doge.jpg" alt="카드 이미지" class="product-image">
+            <div class="product-info">
+              <div class="product-name">유희왕 사이버스트라이크</div>
+              <div class="product-price">32,000원</div>
+            </div>
+          </div>
+
+          <!-- 매직: 더 개더링 -->
+          <div class="product-card" data-game="매직">
+            <img src="https://knmango.github.io/archive/assets/doge.jpg" alt="카드 이미지" class="product-image">
+            <div class="product-info">
+              <div class="product-name">매직 인니스트라드: 진홍의 맹세</div>
+              <div class="product-price">48,000원</div>
+            </div>
+          </div>
+
+          <div class="product-card" data-game="매직">
+            <img src="https://knmango.github.io/archive/assets/doge.jpg" alt="카드 이미지" class="product-image">
+            <div class="product-info">
+              <div class="product-name">매직 커맨더 레전드</div>
+              <div class="product-price">52,000원</div>
+            </div>
+          </div>
+
+          <div class="product-card" data-game="매직">
+            <img src="https://knmango.github.io/archive/assets/doge.jpg" alt="카드 이미지" class="product-image">
+            <div class="product-info">
+              <div class="product-name">매직 도미나리아 유나이티드</div>
+              <div class="product-price">45,000원</div>
+            </div>
+          </div>
+
+          <!-- 디지몬 카드 -->
+          <div class="product-card" data-game="디지몬">
+            <img src="https://knmango.github.io/archive/assets/doge.jpg" alt="카드 이미지" class="product-image">
+            <div class="product-info">
+              <div class="product-name">디지몬 카드 부스터 EX-03</div>
+              <div class="product-price">25,000원</div>
+            </div>
+          </div>
+
+          <div class="product-card" data-game="디지몬">
+            <img src="https://knmango.github.io/archive/assets/doge.jpg" alt="카드 이미지" class="product-image">
+            <div class="product-info">
+              <div class="product-name">디지몬 카드 스타터 데크 ST-12</div>
+              <div class="product-price">18,000원</div>
+            </div>
+          </div>
+
+          <!-- 원피스 카드게임 -->
+          <div class="product-card" data-game="원피스">
+            <img src="https://knmango.github.io/archive/assets/doge.jpg" alt="카드 이미지" class="product-image">
+            <div class="product-info">
+              <div class="product-name">원피스 카드게임 로마네스 던전</div>
+              <div class="product-price">35,000원</div>
+            </div>
+          </div>
+
+          <div class="product-card" data-game="원피스">
+            <img src="https://knmango.github.io/archive/assets/doge.jpg" alt="카드 이미지" class="product-image">
+            <div class="product-info">
+              <div class="product-name">원피스 카드게임 확장팩 OP-05</div>
+              <div class="product-price">32,000원</div>
+            </div>
+          </div>
+
+          <!-- 뱅가드 -->
+          <div class="product-card" data-game="뱅가드">
+            <img src="https://knmango.github.io/archive/assets/doge.jpg" alt="카드 이미지" class="product-image">
+            <div class="product-info">
+              <div class="product-name">뱅가드 오버드레스 D-BT06</div>
+              <div class="product-price">28,000원</div>
+            </div>
+          </div>
+
+          <div class="product-card" data-game="뱅가드">
+            <img src="https://knmango.github.io/archive/assets/doge.jpg" alt="카드 이미지" class="product-image">
+            <div class="product-info">
+              <div class="product-name">뱅가드 D 스타트 데크 05</div>
+              <div class="product-price">22,000원</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- 가격 정보 모달 -->
+  <div class="price-modal" id="priceModal">
+    <div class="price-modal-content">
+      <div class="price-modal-header">
+        <div>
+          <h2 id="modalTitle">가격 정보</h2>
+          <div class="price-period">최근 30일간의 가격 데이터입니다.</div>
+        </div>
+        <button class="close-modal" id="closeModal">&times;</button>
+      </div>
+      <div id="modalContent">
+        <table class="price-table">
+          <thead>
+            <tr>
+              <th>구분</th>
+              <th>가격</th>
+              <th>가격차</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>최고 거래가</td>
+              <td id="highestPrice">-</td>
+              <td id="highestPriceChange">-</td>
+            </tr>
+            <tr>
+              <td>최저 거래가</td>
+              <td id="lowestPrice">-</td>
+              <td id="lowestPriceChange">-</td>
+            </tr>
+            <tr>
+              <td>현재 가격</td>
+              <td id="currentPrice">-</td>
+              <td id="currentPriceChange">-</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://knmango.github.io/archive/assets/header.js"></script>
+  <script src="https://knmango.github.io/archive/assets/footer.js"></script>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const productCards = document.querySelectorAll('.product-card');
+      const searchInput = document.getElementById('searchInput');
+      const minPriceInput = document.getElementById('minPrice');
+      const maxPriceInput = document.getElementById('maxPrice');
+      const applyFiltersBtn = document.getElementById('applyFilters');
+      const resultCountEl = document.querySelector('.result-count');
+
+      function filterProducts() {
+        let visibleCount = 0;
+        const searchTerm = searchInput.value.toLowerCase();
+        const minPrice = parseInt(minPriceInput.value) || 0;
+        const maxPrice = parseInt(maxPriceInput.value) || Infinity;
+        const selectedGames = Array.from(document.querySelectorAll('.checkbox-group input[type="checkbox"]:checked'))
+          .map(cb => cb.value);
+
+        productCards.forEach(card => {
+          const cardName = card.querySelector('.product-name').textContent.toLowerCase();
+          const priceText = card.querySelector('.product-price').textContent;
+          const price = parseInt(priceText.replace(/[^0-9]/g, ''));
+          const gameType = card.getAttribute('data-game');
+
+          const matchesSearch = cardName.includes(searchTerm);
+          const matchesPrice = price >= minPrice && price <= maxPrice;
+          const matchesGame = selectedGames.length === 0 || selectedGames.includes(gameType);
+
+          if (matchesSearch && matchesPrice && matchesGame) {
+            card.style.display = 'block';
+            visibleCount++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+
+        if (visibleCount === 0) {
+          resultCountEl.style.display = 'block';
+        } else {
+          resultCountEl.style.display = 'none';
+        }
+      }
+
+      // 이벤트 리스너 등록
+      applyFiltersBtn.addEventListener('click', filterProducts);
+
+      // 초기 필터링 제거
+      // filterProducts();
+
+      // 가격 정보 모달 관련 코드
+      const priceModal = document.getElementById('priceModal');
+      const closeModal = document.getElementById('closeModal');
+      const modalTitle = document.getElementById('modalTitle');
+
+      // 가격 데이터 (실제로는 API에서 가져와야 함)
+      const priceData = {
+        '포켓몬 카드 스칼렛 & 바이올렛': {
+          highest: 45000,
+          lowest: 35000,
+          current: 39000,
+          highestChange: '+5%',
+          lowestChange: '-3%',
+          currentChange: '+2%'
+        },
+        '포켓몬 카드 151': {
+          highest: 50000,
+          lowest: 40000,
+          current: 45000,
+          highestChange: '+8%',
+          lowestChange: '-5%',
+          currentChange: '+3%'
+        },
+        '포켓몬 카드 파라다이스': {
+          highest: 48000,
+          lowest: 38000,
+          current: 42000,
+          highestChange: '+6%',
+          lowestChange: '-4%',
+          currentChange: '-2%'
+        },
+        '유희왕 25th ANNIVERSARY COLLECTION': {
+          highest: 40000,
+          lowest: 30000,
+          current: 35000,
+          highestChange: '+7%',
+          lowestChange: '-6%',
+          currentChange: '+1%'
+        },
+        '유희왕 레전드 오브 블루아이즈': {
+          highest: 35000,
+          lowest: 25000,
+          current: 28000,
+          highestChange: '+4%',
+          lowestChange: '-8%',
+          currentChange: '-2%'
+        },
+        '유희왕 사이버스트라이크': {
+          highest: 38000,
+          lowest: 28000,
+          current: 32000,
+          highestChange: '+9%',
+          lowestChange: '-5%',
+          currentChange: '+4%'
+        },
+        '매직 인니스트라드: 진홍의 맹세': {
+          highest: 55000,
+          lowest: 45000,
+          current: 48000,
+          highestChange: '+10%',
+          lowestChange: '-7%',
+          currentChange: '+5%'
+        },
+        '매직 커맨더 레전드': {
+          highest: 60000,
+          lowest: 48000,
+          current: 52000,
+          highestChange: '+12%',
+          lowestChange: '-8%',
+          currentChange: '+6%'
+        },
+        '매직 도미나리아 유나이티드': {
+          highest: 52000,
+          lowest: 42000,
+          current: 45000,
+          highestChange: '+8%',
+          lowestChange: '-6%',
+          currentChange: '-3%'
+        },
+        '디지몬 카드 부스터 EX-03': {
+          highest: 30000,
+          lowest: 22000,
+          current: 25000,
+          highestChange: '+6%',
+          lowestChange: '-4%',
+          currentChange: '+2%'
+        },
+        '디지몬 카드 스타터 데크 ST-12': {
+          highest: 25000,
+          lowest: 15000,
+          current: 18000,
+          highestChange: '+5%',
+          lowestChange: '-3%',
+          currentChange: '-1%'
+        },
+        '원피스 카드게임 로마네스 던전': {
+          highest: 42000,
+          lowest: 32000,
+          current: 35000,
+          highestChange: '+7%',
+          lowestChange: '-5%',
+          currentChange: '+3%'
+        },
+        '원피스 카드게임 확장팩 OP-05': {
+          highest: 38000,
+          lowest: 28000,
+          current: 32000,
+          highestChange: '+9%',
+          lowestChange: '-6%',
+          currentChange: '+4%'
+        },
+        '뱅가드 오버드레스 D-BT06': {
+          highest: 35000,
+          lowest: 25000,
+          current: 28000,
+          highestChange: '+8%',
+          lowestChange: '-4%',
+          currentChange: '-2%'
+        },
+        '뱅가드 D 스타트 데크 05': {
+          highest: 28000,
+          lowest: 20000,
+          current: 22000,
+          highestChange: '+6%',
+          lowestChange: '-5%',
+          currentChange: '+1%'
+        }
+      };
+
+      function showPriceModal(productName) {
+        const data = priceData[productName] || {
+          highest: 0,
+          lowest: 0,
+          current: 0,
+          highestChange: '-',
+          lowestChange: '-',
+          currentChange: '-'
+        };
+
+        modalTitle.textContent = productName;
+        document.getElementById('highestPrice').textContent = data.highest.toLocaleString() + '원';
+        document.getElementById('lowestPrice').textContent = data.lowest.toLocaleString() + '원';
+        document.getElementById('currentPrice').textContent = data.current.toLocaleString() + '원';
+        
+        const highestChangeEl = document.getElementById('highestPriceChange');
+        const lowestChangeEl = document.getElementById('lowestPriceChange');
+        const currentChangeEl = document.getElementById('currentPriceChange');
+
+        highestChangeEl.textContent = data.highestChange;
+        lowestChangeEl.textContent = data.lowestChange;
+        currentChangeEl.textContent = data.currentChange;
+
+        // 변동 값에 따른 색상 적용
+        [highestChangeEl, lowestChangeEl, currentChangeEl].forEach(el => {
+          const value = el.textContent;
+          el.className = ''; // 기존 클래스 제거
+          if (value.startsWith('+')) {
+            el.classList.add('price-change-positive');
+          } else if (value.startsWith('-')) {
+            el.classList.add('price-change-negative');
+          }
+        });
+
+        priceModal.style.display = 'flex';
+      }
+
+      function hidePriceModal() {
+        priceModal.style.display = 'none';
+      }
+
+      // 상품 카드 클릭 이벤트
+      productCards.forEach(card => {
+        card.addEventListener('click', function() {
+          const productName = this.querySelector('.product-name').textContent;
+          showPriceModal(productName);
+        });
+      });
+
+      // 모달 닫기 버튼
+      closeModal.addEventListener('click', hidePriceModal);
+
+      // 모달 외부 클릭 시 닫기
+      priceModal.addEventListener('click', function(e) {
+        if (e.target === priceModal) {
+          hidePriceModal();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
